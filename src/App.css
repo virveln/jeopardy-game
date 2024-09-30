@@ -1,38 +1,221 @@
-.App {
+@font-face {
+  font-family: 'geopardy'; /* Choose a name for your font family */
+  src: url('/font/geoparody\ hv.otf') format('opentype'); /* Adjust the file path and format */
+  /* Add additional src lines for other font formats, if necessary */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn {
+  background-color: #0E2954;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  margin: auto;
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#show-answer-btn,
+#wrong-btn,
+#correct-btn,
+#back-from-score-btn{
+  margin-top: 70px;
 }
 
-.App-header {
-  background-color: #282c34;
+.btn:hover {
+    background-color: #0c2247;
+}
+
+h1, h2{
+  font-family: 'geopardy';
+  color: #fff;
+  -webkit-text-stroke: 2px rgb(134, 44, 30);
+  text-shadow: 0 0 20px #e74c3c; 
+  margin-top: 0;
+  font-size: 2.5em;
+}
+
+/*START PAGE*/
+  #start-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -550px;    
+}
+
+.background-start{
+  background-image: url('/img/jeopardy.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: 100vh;
-  display: flex;
+}
+
+#start-title{
+  font-family: 'geopardy';
+  color: #fff;
+  -webkit-text-stroke: 2px rgb(123, 30, 134);
+  text-shadow: 0 0 20px rgb(123, 30, 134); 
+  font-size: 4em;
+  margin-top: 75vh;
+  margin-bottom: 0;
+}
+
+/*GAME PAGE*/
+#game-page{
+}
+
+.background-game {
+  background-image: url('/img/newyear.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+  #board {
+      background-color: #02082c;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 1em;
+    width: 90%;
+  }
+
+  .categories-row, .levels-row{
+    display: contents;
+  }
+
+  #back-from-score-btn,
+  #scoreboard-page,
+  #question-page,
+  #answer-page{
+    display: none;
+}
+
+  #game-title{
+      font-size: 8em;
+     margin-bottom: 0;
+  }
+
+  .category {
+    background-color: #0E2954;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cell {
+    background-color: #0E2954;
+    padding: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 2em;
+    font-weight: bold;
+    color: #EEC759;
+  }
+
+  .cell:hover{
+      background-color: #0c2247;
+  }
+
+  .cell.clicked {
+    background-color: #0E2954;
+    color: #0E2954;
+  }
+ 
+  /*QUESTION & ANSWER PAGE*/
+  #question-content,
+  #answer-content,
+  #scoreboard-content {
+    background-color: #fff;
+    width: 1200px;
+    height: 500px;
+    margin: auto;
+    border-radius: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+  }
+
+  h3{
+    font-size: 2em;
+    text-align: center;
+    line-height: 1.5em;
+    padding: 0 70px;
+  }
+
+  #question-content h3{
+    padding: 0 170px;
+  }
+
+  #answer-content h3{
+    padding: 0 70px 0 0;
+  }
+
+  /*QUESTION PAGE*/
+  #question{
+    margin-bottom: 2em;
+}
+
+  /*ANSWER PAGE*/
+  #answer-content img {
+    width: auto;
+    height: 400px;
+  }
+
+  #correct-btn,
+  #wrong-btn{
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  /*SCOREBOARD PAGE*/
+  #scoreboard-content{
+    display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  
+  #scoreboard-content div{
+    /*margin: 20px;*/
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0 100px;
   }
-}
+  /*ÄNDRA SÅ NÄR DET ÄR MÅNGA NAMN HAMNAR DE BREDVID VARANDRA*/
+
+  .scoreboard-title{
+    margin-top: -300px;
+    font-size: 3em;
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+
+  .scoreboard-player{
+    width: 100px;
+    margin: 30px;
+  }
+
+ 
+ 
