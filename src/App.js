@@ -41,11 +41,10 @@ function App() {
   const goToScoreboard = () => setCurrentPage("scoreboard");
   const goToAttributions = () => setCurrentPage("attribution");
   const backToStart = () => setCurrentPage("start");
- 
+  
   const openAllAnswers = () => {
-    const baseUrl = window.location.origin + "/jeopardy-game"; // Base URL för GitHub Pages
-    const allAnswersUrl = baseUrl + "/all-answers";
-    window.open(allAnswersUrl, "_blank");
+    const url = window.location.origin + "/jeopardy-game";
+    window.open(url, "_blank");
   };
   
   // Function to update a player's score

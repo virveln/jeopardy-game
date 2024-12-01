@@ -52,7 +52,7 @@
 
 .cell:hover {
     background-color: var(--background-dark-hover);
-    font-size: 3vw;
+    font-size: 4vw;
 }
 
 .cell.selected {
