@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/jeopardy-game/static/css/main.0008dfae.css",
-    "main.js": "/jeopardy-game/static/js/main.f287575c.js",
+    "main.js": "/jeopardy-game/static/js/main.f1bea7fb.js",
     "static/js/179.647daa41.chunk.js": "/jeopardy-game/static/js/179.647daa41.chunk.js",
     "static/js/814.9df89e41.chunk.js": "/jeopardy-game/static/js/814.9df89e41.chunk.js",
     "static/js/66.232340a9.chunk.js": "/jeopardy-game/static/js/66.232340a9.chunk.js",
@@ -98,7 +98,7 @@
     "static/media/2000.avif": "/jeopardy-game/static/media/2000.64430058d59ee6ce4b42.avif",
     "index.html": "/jeopardy-game/index.html",
     "main.0008dfae.css.map": "/jeopardy-game/static/css/main.0008dfae.css.map",
-    "main.f287575c.js.map": "/jeopardy-game/static/js/main.f287575c.js.map",
+    "main.f1bea7fb.js.map": "/jeopardy-game/static/js/main.f1bea7fb.js.map",
     "179.647daa41.chunk.js.map": "/jeopardy-game/static/js/179.647daa41.chunk.js.map",
     "814.9df89e41.chunk.js.map": "/jeopardy-game/static/js/814.9df89e41.chunk.js.map",
     "66.232340a9.chunk.js.map": "/jeopardy-game/static/js/66.232340a9.chunk.js.map",
@@ -107,6 +107,6 @@
   },
   "entrypoints": [
     "static/css/main.0008dfae.css",
-    "static/js/main.f287575c.js"
+    "static/js/main.f1bea7fb.js"
   ]
 }
