@@ -1,221 +1,126 @@
 @font-face {
-  font-family: 'geopardy'; /* Choose a name for your font family */
-  src: url('/font/geoparody\ hv.otf') format('opentype'); /* Adjust the file path and format */
-  /* Add additional src lines for other font formats, if necessary */
+  font-family: 'geopardy';
+  src: url('/font/geoparody\ hv.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
-body{
+:root {
+  --primary-color-pink: #ff007c;
+  --primary-color-pink: #f264ab; 
+  --primary-color-pink: #A31ACB; 
+  
+  --primary-color-shadow-pink: rgba(255, 0, 124, 0.7);
+  --primary-color-shadow-pink: rgba(132, 55, 94, 1);
+  --primary-color-shadow-pink: rgba(255, 0, 124, 0.7);
+  --primary-color-shadow-pink:rgba(242, 100, 171, 0.7);
+  --primary-color-shadow-pink:rgba(163, 26, 203, 0.7);
+
+  --primary-color-darker: #025966;
+  --primary-color-transparent: rgb(4, 160, 184, 0.9);
+
+  --text-pink: rgb(136, 79, 197); 
+  --text-shadow-pink: rgba(89, 52, 129, 0.5);
+
+  /*bra färger*/
+  --background-dark: rgba(0, 14, 33, 0.7);
+  --background-dark-hover: rgba(0, 14, 33, 1);
+
+
+  --primary-blue: #00d1ff;
+  --primary-blue-hover: #0092B3;
+
+  --border-blue: #00d1ff;
+  --border-shadow-blue: rgba(0, 209, 255, 0.7);
+
+  --text-pink: rgba(132, 55, 94, 1); 
+  --text-shadow-pink: rgba(242, 102, 171, 0.5); 
+  
+  --text-blue: #003c49; 
+  --text-shadow-blue: rgba(0, 146, 179, 0.5); 
+}
+
+body {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   text-align: center;
 }
 
-.btn {
-  background-color: #0E2954;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-  margin: auto;
-  margin-top: 20px;
+h1,
+h2 {
+  font-family: 'geopardy';
+  color: #fff;  
+  -webkit-text-stroke: 2px var(--primary-color-shadow-pink);
+  text-shadow: 0 0 20px var(--text-shadow-pink);
+  /* font-size: 2.5em;
+  font-size: 3em; */
+  margin-top: 0;
 }
 
-#show-answer-btn,
-#wrong-btn,
-#correct-btn,
-#back-from-score-btn{
-  margin-top: 70px;
+ul {
+  list-style: none;
+}
+
+.btn {
+  font-weight: bold;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 20px auto 20px auto;
+  margin: 4vh auto 1vh auto;
+  
+  color: #fff;
+  background-color: rgba(0, 14, 33, 0.7);
+
+  border-radius: 8px;
+  border: 2px solid var(--primary-color-pink);
+
+  box-shadow: 0 0 5px var(--primary-color-shadow-pink);
+
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  font-size: 0.9vw;
 }
 
 .btn:hover {
-    background-color: #0c2247;
+  background-color: #0c2247;
+  background-color: rgba(0, 14, 33, 0.8);
+
+  transform: translateY(-2px);
 }
 
-h1, h2{
-  font-family: 'geopardy';
-  color: #fff;
-  -webkit-text-stroke: 2px rgb(134, 44, 30);
-  text-shadow: 0 0 20px #e74c3c; 
-  margin-top: 0;
-  font-size: 2.5em;
+.gif {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  width: 146px;
 }
 
-/*START PAGE*/
-  #start-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: -550px;    
+.title-position {
+  padding-top: 40px;
+  /* font-size: 7vh; */
+  font-size: 3vw;
 }
 
-.background-start{
-  background-image: url('/img/jeopardy.jpg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
+.border-shine {
+  border: 2px solid var(--border-blue);
+  border-radius: 8px;
+  box-shadow: 0 0 8px var(--border-shadow-blue);
 }
 
-#start-title{
-  font-family: 'geopardy';
-  color: #fff;
-  -webkit-text-stroke: 2px rgb(123, 30, 134);
-  text-shadow: 0 0 20px rgb(123, 30, 134); 
-  font-size: 4em;
-  margin-top: 75vh;
-  margin-bottom: 0;
+@media screen and (max-width: 1300px) {
+  .gif {
+    left: 1vw;
+    width: 140px;
+  }
+
+  .title-position {
+    font-size: 2.5em;
+  }
+
+  .btn {
+    margin: 4vh auto 2vh auto;
+    font-size: 0.9em;
+  }
 }
-
-/*GAME PAGE*/
-#game-page{
-}
-
-.background-game {
-  background-image: url('/img/newyear.jpg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-}
-
-  #board {
-      background-color: #02082c;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    margin: auto;
-    margin-top: 20px;
-    padding: 1em;
-    width: 90%;
-  }
-
-  .categories-row, .levels-row{
-    display: contents;
-  }
-
-  #back-from-score-btn,
-  #scoreboard-page,
-  #question-page,
-  #answer-page{
-    display: none;
-}
-
-  #game-title{
-      font-size: 8em;
-     margin-bottom: 0;
-  }
-
-  .category {
-    background-color: #0E2954;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.5em;
-    text-transform: uppercase;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .cell {
-    background-color: #0E2954;
-    padding: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 2em;
-    font-weight: bold;
-    color: #EEC759;
-  }
-
-  .cell:hover{
-      background-color: #0c2247;
-  }
-
-  .cell.clicked {
-    background-color: #0E2954;
-    color: #0E2954;
-  }
- 
-  /*QUESTION & ANSWER PAGE*/
-  #question-content,
-  #answer-content,
-  #scoreboard-content {
-    background-color: #fff;
-    width: 1200px;
-    height: 500px;
-    margin: auto;
-    border-radius: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 50px;
-  }
-
-  h3{
-    font-size: 2em;
-    text-align: center;
-    line-height: 1.5em;
-    padding: 0 70px;
-  }
-
-  #question-content h3{
-    padding: 0 170px;
-  }
-
-  #answer-content h3{
-    padding: 0 70px 0 0;
-  }
-
-  /*QUESTION PAGE*/
-  #question{
-    margin-bottom: 2em;
-}
-
-  /*ANSWER PAGE*/
-  #answer-content img {
-    width: auto;
-    height: 400px;
-  }
-
-  #correct-btn,
-  #wrong-btn{
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  /*SCOREBOARD PAGE*/
-  #scoreboard-content{
-    display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  }
-  
-  #scoreboard-content div{
-    /*margin: 20px;*/
-    font-size: 2em;
-    font-weight: bold;
-    padding: 0 100px;
-  }
-  /*ÄNDRA SÅ NÄR DET ÄR MÅNGA NAMN HAMNAR DE BREDVID VARANDRA*/
-
-  .scoreboard-title{
-    margin-top: -300px;
-    font-size: 3em;
-    text-transform: uppercase;
-    text-decoration: underline;
-  }
-
-  .scoreboard-player{
-    width: 100px;
-    margin: 30px;
-  }
-
- 
- 

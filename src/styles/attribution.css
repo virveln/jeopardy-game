@@ -1,0 +1,14 @@
+/* .attribution-content {
+    min-height: 43vw;
+} */
+
+.attribution-page * {
+    color: white;
+}
+
+.attribution-page ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 0;
+}
