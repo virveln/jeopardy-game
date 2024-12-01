@@ -1,6 +1,6 @@
 {
-  "homepage": "https://virveln.github.io/jeopardy/",
-  "name": "jeopardy_game",
+  "homepage": "https://virveln.github.io/jeopardy-game/",
+  "name": "jeopardy-game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
