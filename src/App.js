@@ -42,7 +42,7 @@ function App() {
   const goToAttributions = () => setCurrentPage("attribution");
   const backToStart = () => setCurrentPage("start");
   const openAllAnswers = () => {
-    const url = window.location.origin + "/all-answers";
+    const url = window.location.origin + "/jeopardy-game/all-answers";
     window.open(url, "_blank");
   };
   
