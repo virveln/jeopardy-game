@@ -5,7 +5,7 @@ import Gameboard from "./components/Gameboard";
 import ShowQuestion from "./components/ShowQuestion";
 import ShowAnswer from "./components/ShowAnswer";
 import Scoreboard from "./components/Scoreboard";
-import AddPlayers from "./components/AddPlayers";
+import GameSettings from "./components/GameSettings";
 import Attribution from "./components/Attribution";
 import Instructions from "./components/Instructions";
 
@@ -33,7 +33,7 @@ function App() {
     setCurrentPage("showQuestion"); // Gå till ShowQuestion
   };
 
-  const addPlayers = () => setCurrentPage("addPlayers");
+  const gameSettings = () => setCurrentPage("gameSettings");
   const instructions = () => setCurrentPage("instructions");
   const startGame = () => setCurrentPage("gameboard");
   const goToAnswer = () => setCurrentPage("showAnswer");
@@ -43,6 +43,7 @@ function App() {
   const backToStart = () => setCurrentPage("start");
   
   const openAllAnswers = () => {
+    window.open(window.location.origin + "/jeopardy-game/all-answers");
     const url = window.location.origin + "/jeopardy-game";
     window.open(url, "_blank");
   };
@@ -66,7 +67,7 @@ function App() {
     <div>
       {currentPage === "start" && (
         <StartPage
-          enterPlayers={addPlayers}
+          enterPlayers={gameSettings}
           instructions={instructions}
           goToAttributions={goToAttributions} />
       )}
@@ -81,8 +82,8 @@ function App() {
         backToStart={backToStart}
         />
       )}
-      {currentPage === "addPlayers" && (
-        <AddPlayers
+      {currentPage === "gameSettings" && (
+        <GameSettings
           onStart={startGame}
           setPlayers={setPlayers}
           setTheme={setTheme}
@@ -102,6 +103,8 @@ function App() {
         <ShowQuestion
           question={selectedQuestion}
           toAnswer={goToAnswer}
+          players={players}
+          updatePlayerScore={updatePlayerScore}
         />
       )}
       {currentPage === "showAnswer" && (

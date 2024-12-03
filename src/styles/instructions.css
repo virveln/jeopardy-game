@@ -1,0 +1,54 @@
+.instruction-page {
+    color: white;
+    text-align: left;
+}
+
+.instruction-content {
+    max-width: 600px;
+    margin: auto;
+    padding: 0 50px;
+}
+
+.instruction-page h2 {
+    text-align: center;
+}
+
+.all-answers-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.instruction-list,
+.control-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.instruction-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: left;
+}
+
+.instruction-table td {
+    padding: 8px 0;
+    vertical-align: top;
+}
+
+.instruction-table .left,
+.control-table .left {
+    /* width: 150px; */
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.control-table {
+    margin-top: 30px;
+}
+
+.btn-instructions-container {
+    display: flex;
+    justify-content: center;
+}

@@ -1,13 +1,22 @@
 import "../App.css";
-import '../styles/playersAnswer.css';
-import React, { useState } from "react";
+import '../styles/playersBtnQA.css';
+import React, { useState, useEffect } from "react";
 import { FaCheck } from 'react-icons/fa6';
 
 export default function PlayersAnswer({ players, questionValue, updatePlayerScore }) {
     const [animation, setAnimation] = useState(null); // För att hantera animationen
     const [animationClass, setAnimationClass] = useState("");
+    const [clickedButtons, setClickedButtons] = useState({});
 
     const handleButtonClick = (playerName, value, isCorrect, buttonContent, e) => {
+        if (clickedButtons[playerName]) return;
+        
+        // Uppdatera state för att markera knappen som klickad
+        setClickedButtons((prev) => ({
+            ...prev,
+            [playerName]: isCorrect ? "correct" : "incorrect",
+        }));
+
         // Få knappens position
         const buttonRect = e.target.getBoundingClientRect();
         // Starta animationen med position från knappen
@@ -28,27 +37,61 @@ export default function PlayersAnswer({ players, questionValue, updatePlayerScor
         setTimeout(() => setAnimation(null), 1000);
     };
 
+    const handleKeyPress = (e) => {
+        // Kontrollera om tangenttrycket matchar en spelares index
+        const playerIndex = parseInt(e.key, 10) - 1; // 1-indexerade tangenter
+        if (playerIndex >= 0 && playerIndex < players.length) {
+            // Simulera knapptryckning
+            const playerName = players[playerIndex].name;
+            const button = document.getElementById(`btn-correct-${playerName}`);
+            if (button) {
+                button.click(); // Trigga knappens click-event
+            }
+        }
+    };
+
+    useEffect(() => {
+        // Lägg till event listener för tangenttryck
+        window.addEventListener("keydown", handleKeyPress);
+
+        // Rensa event listener vid unmount
+        return () => {
+            window.removeEventListener("keydown", handleKeyPress);
+        };
+    }, [players]); // Körs endast en gång vid montering
+
+    const getColumns = (count) => {
+        if (count <= 2) return "1fr"; // En kolumn för 2 spelare
+        if (count <= 4) return "1fr 1fr"; // Två kolumner för 3-4 spelare
+        return "1fr 1fr 1fr"; // Tre kolumner för 5-6 spelare
+    };
+
+    const gridStyle = {
+        gridTemplateColumns: getColumns(players.length),
+    };
+
     return (
-        <div className="player-answer">
+        <div className="player-answer"  style={gridStyle}>
             {players.map((player) => (
                 <div className="player" key={player.name}>
-                    <h4 className="player-name">{player.name}</h4>
                     <div className="btn-container">
                         <button
-                            className="btn-answer btn-correct"
+                            id={`btn-correct-${player.name}`}
+                            className={`btn-answer btn-correct ${clickedButtons[player.name] === "correct" ? "disabled-g" : ""}`}
                             // onClick={() => { updatePlayerScore(player.name, questionValue, true); }}
                             onClick={(e) => handleButtonClick(player.name, questionValue, true, <FaCheck />, e)}
                         >
                             <FaCheck />
                         </button>
-                        <button
-                            className="btn-answer btn-incorrect"
+                        {/* <button
+                            className={`btn-answer btn-incorrect ${clickedButtons[player.name] === "incorrect" ? "disabled" : ""}`}
                             // onClick={() => { updatePlayerScore(player.name, questionValue, false); }}
                             onClick={(e) => handleButtonClick(player.name, questionValue, false, "x", e)}
                         >
                             x
-                        </button>
+                        </button> */}
                     </div>
+                    <h4 className="player-name">{player.name}</h4>
                 </div>
             ))}
 

@@ -1,5 +1,5 @@
 import "../App.css";
-import '../styles/addPlayers.css';
+import '../styles/gameSettings.css';
 import { useState, useEffect, useRef } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import jeopardyLogo from '../images/jeopardy.gif';
@@ -12,14 +12,22 @@ export default function AddPlayers({ onStart, setPlayers, setTheme }) {
     const [playerName, setPlayerName] = useState('');
     const [playersList, setPlayersList] = useState([]);
     const [selectedTheme, setSelectedTheme] = useState('allmant');
+    const [selectedThemeIndex, setSelectedThemeIndex] = useState(1);
     const inputRef = useRef(null);
+
+    const themes = [
+        { value: 'allmant', label: 'Allmänt', thumbnail: allmantThumbnail },
+        { value: 'jul', label: 'Jul', thumbnail: julThumbnail },
+        { value: 'nyår2024', label: 'Nyår 2024', thumbnail: nyår2024Thumbnail },
+        // { value: 'nyår2025', label: 'Nyår 2025', thumbnail: nyår2025Thumbnail },
+    ];
 
     useEffect(() => {
         inputRef.current.focus();
     }, []);
 
-    const handleKeyPress = (e) => {
-        if (e.key === "Enter") {
+    const handleEnterPress = (e) => {
+        if (e.key === "Enter" && !e.ctrlKey) {
             handleAddPlayer();
         }
     };
@@ -55,19 +63,51 @@ export default function AddPlayers({ onStart, setPlayers, setTheme }) {
         onStart();  // Starta spelet och gå vidare till Gameboard
     };
 
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter" && e.ctrlKey) {
+            handleStartGame();
+        }
+    //     else if (e.key === "ArrowRight" && e.ctrlKey) {
+    //         // Öka indexet och loopa runt till 1 om det går över längden
+    //         setSelectedThemeIndex((selectedThemeIndex % themes.length) + 1);
+    //     } else if (e.key === "ArrowLeft" && e.ctrlKey) {
+    //         // Minska indexet och loopa runt till max längd om det går under 1
+    //         setSelectedThemeIndex((selectedThemeIndex - 2 + themes.length) % themes.length + 1);
+    //     }
+        
+    //     const selectedTheme = themes.find((theme, index) => index + 1 === selectedThemeIndex);
+    // if (selectedTheme) {
+    //     const button = document.getElementById(`btn-theme-${selectedTheme.value}`);
+    //     if (button) {
+    //         button.click(); // Trigga knappens click-event
+    //     }
+    // }
+
+    };
+
+    useEffect(() => {
+        // Lägg till event listener för tangenttryck
+        window.addEventListener("keydown", handleKeyPress);
+
+        // Rensa event listener vid unmount
+        return () => {
+            window.removeEventListener("keydown", handleKeyPress);
+        };
+    }, [themes]); // Körs endast en gång vid montering
+
     return (
         <div className="add-players-container ">
             <div className="add-players-content">
                 <img src={jeopardyLogo} alt="jeopardy" className="gif" />
                 <div className="add-players-inner">
-                <h2 className="title-position">Add Players</h2>
+                    <h2 className="title-position">Add Players</h2>
                     <div className="input-container">
                         <input
                             ref={inputRef}
                             type="text"
                             value={playerName}
                             onChange={(e) => setPlayerName(e.target.value)}
-                            onKeyDown={handleKeyPress}
+                            onKeyDown={handleEnterPress}
                             placeholder="Enter player name"
                             className="input-name"
                         />
@@ -86,13 +126,9 @@ export default function AddPlayers({ onStart, setPlayers, setTheme }) {
                 <div className="theme-selector">
                     <h2 className="title-theme">Select Theme</h2>
                     <div className="theme-buttons">
-                        {[
-                            { value: 'allmant', label: 'Allmänt', thumbnail: allmantThumbnail },
-                            { value: 'jul', label: 'Jul', thumbnail: julThumbnail },
-                            { value: 'nyår2024', label: 'Nyår 2024', thumbnail: nyår2024Thumbnail },
-                            { value: 'nyår2025', label: 'Nyår 2025', thumbnail: nyår2025Thumbnail },
-                        ].map((theme) => (
+                        {themes.map((theme) => (
                             <button
+                                id={`btn-theme-${theme.value}`}
                                 key={theme.value}
                                 className={`theme-button ${selectedTheme === theme.value ? 'active' : ''}`}
                                 onClick={() => setSelectedTheme(theme.value)}

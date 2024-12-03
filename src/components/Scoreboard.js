@@ -1,8 +1,25 @@
 import "../App.css";
 import '../styles/scoreboard.css';
 import jeopardyLogo from '../images/jeopardy.gif';
+import { useEffect } from "react";
 
 export default function Scoreboard({ players, onBack }) {
+    const handleKeyPress = (e) => {
+        if (e.key === "s" | e.key === "S" ) {
+            onBack();
+        }
+    };
+
+    useEffect(() => {
+        // Lägg till event listener för tangenttryck
+        window.addEventListener("keydown", handleKeyPress);
+
+        // Rensa event listener vid unmount
+        return () => {
+            window.removeEventListener("keydown", handleKeyPress);
+        };
+    }, []); // Körs endast en gång vid montering
+    
     return (
         <div className="background-scoreboard scoreboard">
             <img src={jeopardyLogo} alt="jeopardy" className="gif" />

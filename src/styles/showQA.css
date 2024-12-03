@@ -25,13 +25,20 @@
 }
 
 .answer-content h3 {
-    padding-right: 70px;
+    /* padding-right: 70px; */
     padding-right: 5%;
 }
 
 /*QUESTION PAGE*/
-.btn-question {
-    margin-top: 55px;
+.btn-question,
+.btn-answer-page {
+    /* margin-top: 55px; */
+    margin: 1vh auto 1vh auto;
+    height: fit-content;
+    margin-top: 13px;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 5px 10px 1px 10px;
 }
 
 /*ANSWER PAGE*/
@@ -62,11 +69,23 @@
     overflow: hidden;
 }
 
-.btn-answer-page {
+/* .btn-answer-page {
     margin: 1vh auto 1vh auto;
+    height: fit-content;
+    margin-top: 13px;
+} */
+
+.answer-nextbtn-container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 1fr auto;
+    width: calc(80vw + 100px);
+    margin: auto;
+    /* margin: 0 2vw; */
 }
 
 @media screen and (max-width: 1200px) {
+
     .question-content,
     .answer-content {
         font-size: 0.8em;

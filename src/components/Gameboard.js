@@ -28,6 +28,22 @@ export default function Gameboard({ selectedCells, setSelectedCells, onSelectQue
         onSelectQuestion(category, question);
     };
 
+    const handleKeyPress = (e) => {
+        if (e.key === "s" | e.key === "S" ) {
+            onGoToScoreboard();
+        }
+    };
+
+    useEffect(() => {
+        // Lägg till event listener för tangenttryck
+        window.addEventListener("keydown", handleKeyPress);
+
+        // Rensa event listener vid unmount
+        return () => {
+            window.removeEventListener("keydown", handleKeyPress);
+        };
+    }, []); // Körs endast en gång vid montering
+
     return (
         <>
 

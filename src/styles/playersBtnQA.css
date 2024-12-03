@@ -1,20 +1,25 @@
 .player-answer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    /* display: flex;
+    flex-wrap: wrap; */
+    /* gap: 20px; */
+    display: grid;    
     margin-top: 20px;
     margin-top: 0;
+    width: fit-content;
+    /* max-width: 80vw; */
+    margin: auto;
+    gap: 0 20px;
+    /* padding-left: 95px; */
 }
 
 .player-answer .player {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     border-radius: 10px;
     padding: 10px;
     color: white;
-    min-width: 150px;
+    /* min-width: 150px; */
 }
 
 .player-answer .player-name {
@@ -41,7 +46,7 @@
     height: 2.4vw;
     font-size: 1.5vw;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     color: white;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -50,15 +55,15 @@
 .btn-correct {
     background-color: transparent;
     color: #45a049;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    /* border-top-right-radius: 0;
+    border-bottom-right-radius: 0; */
 }
 
 .btn-incorrect {
     background-color: transparent;
     color: #e53935;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    /* border-top-left-radius: 0;
+    border-bottom-left-radius: 0; */
 }
 
 .btn-correct:hover {
@@ -80,36 +85,52 @@
     transform: translate(-50%, -50%);
     animation: fly-up 1s ease forwards;
     font-size: 2rem;
-    pointer-events: none; /* Gör så att det inte går att klicka */
+    pointer-events: none;
+    /* Gör så att det inte går att klicka */
     z-index: 1000;
-  }
+}
 
-  /* Grön animation (korrekt svar) */
+/* Grön animation (korrekt svar) */
 .correct-animation {
-    color: #28a745; /* Grön */
-  }
-  
-  /* Röd animation (felaktigt svar) */
-  .incorrect-animation {
-    color: #dc3545; /* Röd */
-  }
-  
-  /* Animationens nyckframes */
-  @keyframes fly-up {
+    color: #28a745;
+}
+
+/* Röd animation (felaktigt svar) */
+.incorrect-animation {
+    color: #dc3545;
+}
+
+.btn-answer.disabled-r {
+    background-color: #e53935;
+    color: white;
+    cursor: default;
+}
+
+.btn-answer.disabled-g {
+    background-color: #28a745;
+    color: white;
+    cursor: default;
+}
+
+
+/* Animationens nyckframes */
+@keyframes fly-up {
     0% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
     }
+
     50% {
-      transform: translate(-50%, -200%) scale(1.2);
-      opacity: 1;
+        transform: translate(-50%, -150%) scale(1.2);
+        opacity: 1;
     }
+
     100% {
-      transform: translate(-50%, -300%) scale(0.8);
-      opacity: 0;
+        transform: translate(-50%, -200%) scale(0.8);
+        opacity: 0;
     }
-  }
-  
+}
+
 
 
 @media screen and (max-width: 1300px) {
@@ -117,7 +138,7 @@
         font-size: 1.2em;
         margin: 10px;
     }
-    
+
     .btn-answer {
         width: 40px;
         height: 30px;

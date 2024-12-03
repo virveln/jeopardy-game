@@ -42,8 +42,8 @@ export default function AllAnswers() {
                 <tbody>
                   {category.questions.map((q) => (
                     <tr key={q.id}>
-                      <td>{q.question}</td>
-                      <td>{q.answer}</td>
+                      <td dangerouslySetInnerHTML={{ __html: q.question }}></td>
+                      <td dangerouslySetInnerHTML={{ __html: q.answer }}></td>
                       <td>{q.level}</td>
                     </tr>
                   ))}
