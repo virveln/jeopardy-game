@@ -18,7 +18,7 @@ export default [
                 id: 1,
                 level: 100,
                 question: "I Sverige är det tradition att titta på detta TV-program klockan 15:00 på julafton.",
-                answer: "Vad är <i>'Kalle Anka och hans vänner önskar God Jul'</i>?",
+                answer: "Vad är <i>Kalle Anka och hans vänner önskar God Jul</i>?",
                 image: images["kalleanka.jpg"],
                 imageSource: "Image from tv.nu"
             },
@@ -42,7 +42,7 @@ export default [
                 id: 4,
                 level: 400,
                 question: "Det här är namnet på den engelska traditionen där gåvor ursprungligen doneras till behövande 1-2 dagar efter julafton.",
-                answer: "Vad är Boxing Day?",
+                answer: "Vad är <i>Boxing Day</i>?",
                 image: images["boxingday.jpg"],
                 imageSource: "Image from Freepik"
             },
@@ -62,40 +62,40 @@ export default [
             {
                 id: 6,
                 level: 100,
-                question: "Denna populära moderna julsång framförs av Mariah Carey.",
-                answer: "Vad är <i>'All I Want for Christmas Is You'</i>?",
+                question: "Denna populära julsång framförs av Mariah Carey.",
+                answer: "Vad är <i>All I Want for Christmas Is You</i>?",
                 image: images["carey.jpeg"],
                 imageSource: "Image from spotify.com"
             },
             {
                 id: 7,
                 level: 200,
-                question: "Denna julsång framförs av the Plastics på skolans talangshow i Mean Girls",
-                answer: "Vad är <i>'Jingle Bell Rock'</i>?",
+                question: "Denna julsång framförs av <i>the Plastics</i> på skolans talangshow i <i>Mean Girls</i>",
+                answer: "Vad är <i>Jingle Bell Rock</i>?",
                 image: images["jinglebellrock.webp"],
                 imageSource: "Image from buzzfeed.com"
             },
             {
                 id: 8,
                 level: 300,
-                question: "Denna svenska julsång, ofta sjungen i körer, är också känd som 'Gläns över sjö och strand'.",
-                answer: "Vad är <i>'Betlehems stjärna'</i>?",
-                image: images["betlehems-stjärna.svg"],
+                question: "Denna ikoniska jullåt handlar om ett gräl mellan två älskande i New York under julhelgen och innehåller texten: <i>'Happy Christmas your arse. I pray God it's our last'</i>.",
+                answer: "Vad är <i>Fairytale of New York</i>?",
+                image: images["fairytale.jpg"],
                 imageSource: "Image from musescore.com"
             },
             {
                 id: 9,
                 level: 400,
-                question: "Denna populära jullåt som handlar om mamma och tomten sjungs av The Jackson 5, ",
-                answer: "Vad är <i>'I Saw Mommy Kissing Santa Claus'</i> / <i>'Jag såg mamma kyssa tomten'</i>?",
+                question: "Denna populära jullåt som handlar om mamma och tomten sjungs på engelska av The Jackson 5.",
+                answer: "Vad är <i>I Saw Mommy Kissing Santa Claus</i> / <i>Jag såg mamma kyssa tomten</i>?",
                 image: images["mommy-kissing-Santa.jpg"],
                 imageSource: "Image from mjvibe.com"
             },
             {
                 id: 10,
                 level: 500,
-                question: "Denna brittiska julsång är känd för sin text 'Good tidings we bring to you and your kin'.",
-                answer: "Vad är <i>'We Wish You a Merry Christmas'</i>?",
+                question: "Denna brittiska julsång är känd för sin text <i>'Good tidings we bring to you and your kin'</i>.",
+                answer: "Vad är <i>We Wish You a Merry Christmas</i>?",
                 image: images["we-wish.jpg"],
                 imageSource: "Image from youtube.com"
             }
@@ -107,23 +107,23 @@ export default [
             {
                 id: 11,
                 level: 100,
-                question: "Denna efterrätt, som ofta serveras vid jul, består av bl.a. gröt blandad med vispad grädde och sötmandel.",
-                answer: "Vad är ris à la Malta?",
-                image: images["risalamalta.avif"],
-                imageSource: "Image from valio.se"
-            },
-            {
-                id: 12,
-                level: 200,
                 question: "Denna maträtt, ofta gjord på potatis, ansjovis och grädde, är en självklarhet på svenska julbordet.",
                 answer: "Vad är Janssons frestelse?",
                 image: images["janssons.jpg"],
                 imageSource: "Image from abba.se"
             },
             {
+                id: 12,
+                level: 200,
+                question: "Denna efterrätt, som ofta serveras vid jul, består av bl.a. gröt blandad med vispad grädde och sötmandel.",
+                answer: "Vad är ris à la Malta?",
+                image: images["risalamalta.avif"],
+                imageSource: "Image from valio.se"
+            },
+            {
                 id: 13,
                 level: 300,
-                question: "Detta norska julbordsmåste är en rätt gjord på fisk.",
+                question: "Denna julbordsrätt är gjord på vit fisk.",
                 answer: "Vad är lutfisk?",
                 image: images["lutfisk.png"],
                 imageSource: "Image from sjomatsframjandet"
@@ -153,7 +153,7 @@ export default [
                 id: 16,
                 level: 100,
                 question: "Denna julfilm från 1988, som utspelar sig på en fest i en skyskrapa, har Bruce Willis i huvudrollen som en polis som bekämpar terrorister.",
-                answer: "Vad är <i>'Die Hard'</i>?",
+                answer: "Vad är <i>Die Hard</i>?",
                 image: images["diehard.jpg"],
                 imageSource: "Image from nfbio.se"
             },
@@ -161,7 +161,7 @@ export default [
                 id: 17,
                 level: 200,
                 question: "I denna julfilm från 1989, som utspelar sig i Chicago, försöker en ung pojke skydda sitt hem från två tjuvar under julhelgen.",
-                answer: "Vad är <i>'Home Alone'</i>?",
+                answer: "Vad är <i>Home Alone</i> / <i>Ensam hemma</i>?",
                 image: images["homealone.jpg"],
                 imageSource: "Image from imdb.com"
             },
@@ -169,7 +169,7 @@ export default [
                 id: 18,
                 level: 300,
                 question: "Denna film från 2003 handlar om en grinig figur som bestämmer sig för att förstöra julen för invånarna i Whoville.",
-                answer: "Vad är <i>'How the Grinch Stole Christmas'</i>?",
+                answer: "Vad är <i>How the Grinch Stole Christmas</i> / <i>Grinchen - julen är stulen</i>?",
                 image: images["grinchen.jpg"],
                 imageSource: "Image from wikipedie.com"
             },
@@ -177,7 +177,7 @@ export default [
                 id: 19,
                 level: 400,
                 question: "Denna brittiska julfilm från 2011 är en romantisk komedi som väver samman flera olika berättelser om människor som finner kärlek eller frid under julen.",
-                answer: "Vad är <i>'Love Actually'</i>?",
+                answer: "Vad är <i>Love Actually</i>?",
                 image: images["loveactually.jpg"],
                 imageSource: "Image from imdb.com"
             },
@@ -185,7 +185,7 @@ export default [
                 id: 20,
                 level: 500,
                 question: "I denna julfilm från 2004, regisserad av Tim Burton, blandas Halloween och julen när en karaktär från Halloween Town försöker ta över julen.",
-                answer: "Vad är <i>'The Nightmare Before Christmas'</i>?",
+                answer: "Vad är <i>The Nightmare Before Christmas</i>?",
                 image: images["nighmare-before-christmas.jpg"],
                 imageSource: "Image from imdb.com"
             }

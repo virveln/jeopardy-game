@@ -6,14 +6,7 @@
 }
 
 :root {
-  --primary-color-pink: #ff007c;
-  --primary-color-pink: #f264ab; 
   --primary-color-pink: #A31ACB; 
-  
-  --primary-color-shadow-pink: rgba(255, 0, 124, 0.7);
-  --primary-color-shadow-pink: rgba(132, 55, 94, 1);
-  --primary-color-shadow-pink: rgba(255, 0, 124, 0.7);
-  --primary-color-shadow-pink:rgba(242, 100, 171, 0.7);
   --primary-color-shadow-pink:rgba(163, 26, 203, 0.7);
 
   --primary-color-darker: #025966;
@@ -69,25 +62,25 @@ ul {
   cursor: pointer;
   margin: 20px auto 20px auto;
   margin: 4vh auto 1vh auto;
-  
   color: #fff;
   background-color: rgba(0, 14, 33, 0.7);
-
   border-radius: 8px;
   border: 2px solid var(--primary-color-pink);
-
   box-shadow: 0 0 5px var(--primary-color-shadow-pink);
-
   transition: background-color 0.3s ease, transform 0.2s ease;
-
   font-size: 0.9vw;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   background-color: #0c2247;
   background-color: rgba(0, 14, 33, 0.8);
-
   transform: translateY(-2px);
+}
+
+.btn-arrow {
+  font-size: 1.5em;
+  padding: 6px 15px 1px 15px;
 }
 
 .gif {
@@ -122,5 +115,10 @@ ul {
   .btn {
     margin: 4vh auto 2vh auto;
     font-size: 0.9em;
+  }
+
+  .btn-arrow {
+    font-size: 1.5em;
+    padding: 6px 15px 1px 15px;
   }
 }

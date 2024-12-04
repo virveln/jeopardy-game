@@ -2,27 +2,26 @@ import "../App.css";
 import '../styles/scoreboard.css';
 import jeopardyLogo from '../images/jeopardy.gif';
 import { useEffect } from "react";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
-export default function Scoreboard({ players, onBack }) {
+export default function Scoreboard({ players, backToGameboard }) {
+    
     const handleKeyPress = (e) => {
-        if (e.key === "s" | e.key === "S" ) {
-            onBack();
+        if (e.key === "Enter" | e.key === "Escape") {
+            backToGameboard();
         }
     };
 
     useEffect(() => {
-        // Lägg till event listener för tangenttryck
         window.addEventListener("keydown", handleKeyPress);
-
-        // Rensa event listener vid unmount
         return () => {
             window.removeEventListener("keydown", handleKeyPress);
         };
-    }, []); // Körs endast en gång vid montering
-    
+    }, []);
+
     return (
         <div className="background-scoreboard scoreboard">
-            <img src={jeopardyLogo} alt="jeopardy" className="gif" />
+            {/* <img src={jeopardyLogo} alt="jeopardy" className="gif" /> */}
             <h2 id="sub-title" className="scoreboard-subtitle title-position">Nyår 2024 edition</h2>
             <div className="player-list-container">
                 <fieldset className="player-list border-shine">
@@ -40,8 +39,8 @@ export default function Scoreboard({ players, onBack }) {
                     </ul>
                 </fieldset>
             </div>
-            <button className="btn" onClick={onBack}>
-                Back to Gameboard
+            <button className="btn btn-arrow" onClick={backToGameboard}>
+                <FaArrowLeftLong />
             </button>
         </div>
     );

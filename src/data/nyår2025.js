@@ -58,7 +58,7 @@ export default [
         ],
     },
     {
-        category: "Nyår",
+        category: "Nyårskaramell",
         questions: [
             {
                 id: 6,
@@ -103,7 +103,7 @@ export default [
         ],
     },
     {
-        category: "Nyår",
+        category: "Nya ord",
         questions: [
             {
                 id: 11,
@@ -148,7 +148,7 @@ export default [
         ],
     },
     {
-        category: "Nyår",
+        category: "Musik",
         questions: [
             {
                 id: 16,
@@ -193,13 +193,13 @@ export default [
         ],
     },
     {
-        category: "Nyår",
+        category: "12-slaget",
         questions: [
             {
                 id: 21,
                 level: 100,
                 question: "",
-                answer: "",
+                answer: "Vad är champagne?",
                 image: images[''],
                 imageSource: ""
             },

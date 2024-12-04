@@ -3,10 +3,24 @@
     text-align: left;
 }
 
+.instruction-page .new-content {
+    margin-top: 20px;
+}
+
 .instruction-content {
-    max-width: 600px;
+    /* max-width: 600px; */
     margin: auto;
     padding: 0 50px;
+}
+
+.instruction-background {
+    background-color: var(--background-dark);
+    border: 2px solid var(--border-blue);
+    border-radius: 8px;
+    box-shadow: 0 0 8px var(--border-shadow-blue);
+    max-width: 600px;
+    padding: 5px 20px 20px 20px;
+    margin: auto;
 }
 
 .instruction-page h2 {
@@ -16,6 +30,11 @@
 .all-answers-link {
     text-decoration: underline;
     cursor: pointer;
+    color: white;
+}
+
+.all-answers-link:hover {
+    color: rgb(200, 200, 200);
 }
 
 .instruction-list,
@@ -42,10 +61,6 @@
     /* width: 150px; */
     font-weight: bold;
     padding-right: 10px;
-}
-
-.control-table {
-    margin-top: 30px;
 }
 
 .btn-instructions-container {

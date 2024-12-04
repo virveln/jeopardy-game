@@ -109,7 +109,6 @@
     max-height: 10.5vw; 
 
     word-break: break-all;
-
 }
 
 .theme-button img.theme-thumbnail {
@@ -143,8 +142,7 @@
     .input-container {
         margin-top: 3vw;
         padding: 5px;
-        width: 320px;
-        
+        width: 320px;  
     }
 
     .input-name {

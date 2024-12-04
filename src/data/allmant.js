@@ -162,7 +162,7 @@ export default [
                 id: 17,
                 level: 200,
                 question: "Denna sång av ABBA vann Eurovision Song Contest 1974.",
-                answer: "Vad är 'Waterloo'?",
+                answer: "Vad är <i>Waterloo</i>?",
                 image: images["abba.webp"],
                 imageSource: "Image from TT Nyhetsbyrån"
             },
@@ -177,7 +177,7 @@ export default [
             {
                 id: 19,
                 level: 400,
-                question: "Det här spelet, utvecklat av svenska Mojang, blev en global succé.",
+                question: "Det här block-spelet, utvecklat av svenska Mojang, blev en global succé.",
                 answer: "Vad är Minecraft?",
                 image: images["minecraft.jpg"],
                 imageSource: "Image from minecraft.net"

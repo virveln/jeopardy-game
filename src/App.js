@@ -8,15 +8,12 @@ import Scoreboard from "./components/Scoreboard";
 import GameSettings from "./components/GameSettings";
 import Attribution from "./components/Attribution";
 import Instructions from "./components/Instructions";
+import AllAnswers from './components/AllAnswers';
 
 function App() {
-
-  //UI
-  const [currentPage, setCurrentPage] = useState("start"); // Håller reda på vilken sida som visas
-  const [selectedCells, setSelectedCells] = useState([]); // Sparar valda celler
-  const [selectedQuestion, setSelectedQuestion] = useState(null); // För att spara den valda frågan
-
-  // Players and theme
+  const [currentPage, setCurrentPage] = useState("start");
+  const [selectedCells, setSelectedCells] = useState([]);
+  const [selectedQuestion, setSelectedQuestion] = useState(null);
   const [players, setPlayers] = useState([]);
   const [theme, setTheme] = useState('nyår2024');
 
@@ -29,62 +26,64 @@ function App() {
       imageSource: question.imageSource,
       value: question.level,
     });
-    console.log(selectedQuestion);
-    setCurrentPage("showQuestion"); // Gå till ShowQuestion
+    setCurrentPage("showQuestion");
   };
 
-  const gameSettings = () => setCurrentPage("gameSettings");
-  const instructions = () => setCurrentPage("instructions");
+  const goToGameSettings = () => setCurrentPage("gameSettings");
+  const goToAttributions = () => setCurrentPage("attribution");
+  const goToInstructions = () => setCurrentPage("instructions");
   const startGame = () => setCurrentPage("gameboard");
   const goToAnswer = () => setCurrentPage("showAnswer");
-  const backToGameboard = () => setCurrentPage("gameboard");
   const goToScoreboard = () => setCurrentPage("scoreboard");
-  const goToAttributions = () => setCurrentPage("attribution");
+  const backToGameboard = () => setCurrentPage("gameboard");
   const backToStart = () => setCurrentPage("start");
-  
+
+  //Because of publication on Github pages this was the solution to open in another tab
   const openAllAnswers = () => {
-    window.open(window.location.origin + "/jeopardy-game/all-answers");
-    const url = window.location.origin + "/jeopardy-game";
-    window.open(url, "_blank");
+    //window.open(window.location.origin + "/jeopardy-game/all-answers", "_blank");
+    window.open(window.location.origin + "/jeopardy-game/", "_blank");
+    setCurrentPage("allAnswers");
   };
-  
-  // Function to update a player's score
+
+  // Update a player's score
   const updatePlayerScore = (playerName, points, isCorrect) => {
     setPlayers((prevPlayers) =>
       prevPlayers.map((player) =>
         player.name === playerName
           ? {
             ...player,
-            score: player.score + (isCorrect ? points : -points), // Lägg till vid rätt, dra av vid fel
+            score: player.score + (isCorrect ? points : -points),
           }
           : player
       )
     );
   };
 
-
   return (
     <div>
+      {currentPage === "allAnswers" && (
+        <AllAnswers/>
+      )}
       {currentPage === "start" && (
         <StartPage
-          enterPlayers={gameSettings}
-          instructions={instructions}
+          goToGameSettings={goToGameSettings}
+          goToInstructions={goToInstructions}
           goToAttributions={goToAttributions} />
       )}
       {currentPage === "instructions" && (
         <Instructions
-        openAllAnswers={openAllAnswers}
-        backToStart={backToStart}
+          openAllAnswers={openAllAnswers}
+          backToStart={backToStart}
         />
       )}
       {currentPage === "attribution" && (
         <Attribution
-        backToStart={backToStart}
+          backToStart={backToStart}
         />
       )}
       {currentPage === "gameSettings" && (
         <GameSettings
-          onStart={startGame}
+          startGame={startGame}
           setPlayers={setPlayers}
           setTheme={setTheme}
         />
@@ -93,8 +92,8 @@ function App() {
         <Gameboard
           selectedCells={selectedCells}
           setSelectedCells={setSelectedCells}
-          onSelectQuestion={handleQuestionSelection}
-          onGoToScoreboard={goToScoreboard}
+          handleQuestionSelection={handleQuestionSelection}
+          goToScoreboard={goToScoreboard}
           players={players}
           theme={theme}
         />
@@ -102,7 +101,7 @@ function App() {
       {currentPage === "showQuestion" && (
         <ShowQuestion
           question={selectedQuestion}
-          toAnswer={goToAnswer}
+          goToAnswer={goToAnswer}
           players={players}
           updatePlayerScore={updatePlayerScore}
         />
@@ -110,7 +109,7 @@ function App() {
       {currentPage === "showAnswer" && (
         <ShowAnswer
           question={selectedQuestion}
-          onBack={backToGameboard}
+          backToGameboard={backToGameboard}
           players={players}
           updatePlayerScore={updatePlayerScore}
 
@@ -119,7 +118,7 @@ function App() {
       {currentPage === "scoreboard" && (
         <Scoreboard
           players={players}
-          onBack={backToGameboard}
+          backToGameboard={backToGameboard}
         />
       )}
     </div>

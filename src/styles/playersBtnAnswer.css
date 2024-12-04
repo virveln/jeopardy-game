@@ -86,32 +86,28 @@
     animation: fly-up 1s ease forwards;
     font-size: 2rem;
     pointer-events: none;
-    /* Gör så att det inte går att klicka */
     z-index: 1000;
 }
 
-/* Grön animation (korrekt svar) */
 .correct-animation {
     color: #28a745;
 }
 
-/* Röd animation (felaktigt svar) */
 .incorrect-animation {
     color: #dc3545;
 }
 
-.btn-answer.disabled-r {
+.btn-answer.disabled-red {
     background-color: #e53935;
     color: white;
     cursor: default;
 }
 
-.btn-answer.disabled-g {
+.btn-answer.disabled-green {
     background-color: #28a745;
     color: white;
     cursor: default;
 }
-
 
 /* Animationens nyckframes */
 @keyframes fly-up {
@@ -130,8 +126,6 @@
         opacity: 0;
     }
 }
-
-
 
 @media screen and (max-width: 1300px) {
     .player-answer .player-name {

@@ -1,24 +1,25 @@
 import "../App.css";
-import '../styles/playersBtnQA.css';
+import '../styles/playersBtnAnswer.css';
 import React, { useState, useEffect } from "react";
+import { FaCheck } from 'react-icons/fa6';
 
-export default function PlayersBtnQ ({ players, questionValue, updatePlayerScore }) {
-    const [animation, setAnimation] = useState(null); // För att hantera animationen
+export default function PlayersBtnAnswer({ players, questionValue, updatePlayerScore, whichPage }) {
+    const [animation, setAnimation] = useState(null);
     const [animationClass, setAnimationClass] = useState("");
     const [clickedButtons, setClickedButtons] = useState({});
 
     const handleButtonClick = (playerName, value, isCorrect, buttonContent, e) => {
         if (clickedButtons[playerName]) return;
-        
-        // Uppdatera state för att markera knappen som klickad
+
+        // Update state to mark button as clicked 
         setClickedButtons((prev) => ({
             ...prev,
             [playerName]: isCorrect ? "correct" : "incorrect",
         }));
 
-        // Få knappens position
+        // Get positions of button
         const buttonRect = e.target.getBoundingClientRect();
-        // Starta animationen med position från knappen
+        // Start animation from button position
         setAnimation({
             content: buttonContent,
             playerName,
@@ -26,26 +27,18 @@ export default function PlayersBtnQ ({ players, questionValue, updatePlayerScore
             top: buttonRect.top + buttonRect.height / 2,
         });
 
-        // Sätt färgen på animationen baserat på om det är korrekt eller felaktigt
         setAnimationClass(isCorrect ? "correct-animation" : "incorrect-animation");
-
-        // Uppdatera spelarens poäng
         updatePlayerScore(playerName, value, isCorrect);
-
-        // Rensa animationen efter 1 sekund
         setTimeout(() => setAnimation(null), 1000);
     };
 
+    // Shortcut controls so each player has a number
     const handleKeyPress = (e) => {
-        // Kontrollera om tangenttrycket matchar en spelares index
         const playerIndex = parseInt(e.key, 10) - 1; // 1-indexerade tangenter
         if (playerIndex >= 0 && playerIndex < players.length) {
-            // Simulera knapptryckning
             const playerName = players[playerIndex].name;
-            const button = document.getElementById(`btn-icorrect-${playerName}`);
-            if (button) {
-                button.click(); // Trigga knappens click-event
-            }
+            const button = document.getElementById(`btn-${whichPage === "question" ? 'btn-incorrect' : 'btn-correct'}-${playerName}`);
+            if (button) { button.click(); }
         }
     };
 
@@ -56,11 +49,11 @@ export default function PlayersBtnQ ({ players, questionValue, updatePlayerScore
         };
     }, [players]);
 
-
+    // Different amount of columns depending on amount of players
     const getColumns = (count) => {
-        if (count <= 2) return "1fr"; // En kolumn för 2 spelare
-        if (count <= 4) return "1fr 1fr"; // Två kolumner för 3-4 spelare
-        return "1fr 1fr 1fr"; // Tre kolumner för 5-6 spelare
+        if (count <= 2) return "1fr";
+        if (count <= 4) return "1fr 1fr";
+        return "1fr 1fr 1fr";
     };
 
     const gridStyle = {
@@ -71,21 +64,30 @@ export default function PlayersBtnQ ({ players, questionValue, updatePlayerScore
         <div className="player-answer" style={gridStyle}>
             {players.map((player) => (
                 <div className="player" key={player.name}>
-                    <div className="btn-container">                    
+                    <div className="btn-container">
                         <button
-                            id={`btn-icorrect-${player.name}`}
-                            className={`btn-answer btn-incorrect ${clickedButtons[player.name] === "incorrect" ? "disabled-r" : ""}`}
-                            // onClick={() => { updatePlayerScore(player.name, questionValue, false); }}
-                            onClick={(e) => handleButtonClick(player.name, questionValue, false, "x", e)}
+                            id={`${whichPage === "question" ? 'btn-incorrect' : 'btn-correct'}-${player.name}`}
+                            className={`btn-answer 
+                                ${whichPage === "question"
+                                    ? 'btn-incorrect'
+                                    : 'btn-correct'} 
+                                ${whichPage === "question"
+                                    ? (clickedButtons[player.name] === "incorrect" ? "disabled-red" : "")
+                                    : (clickedButtons[player.name] === "correct" ? "disabled-green" : "")
+                                }`}
+                            onClick={(e) => {
+                                if (whichPage === "question") { handleButtonClick(player.name, questionValue, false, "x", e); }
+                                else { handleButtonClick(player.name, questionValue, true, <FaCheck />, e); }
+                            }}
                         >
-                            x
+                            {whichPage === "question" ? 'x' : <FaCheck />}
                         </button>
                     </div>
                     <h4 className="player-name">{player.name}</h4>
                 </div>
             ))}
 
-            {/* Animation för kopian */}
+            {/* Animation copy */}
             {animation && (
                 <div className={`floating-animation ${animationClass}`}
                     style={{

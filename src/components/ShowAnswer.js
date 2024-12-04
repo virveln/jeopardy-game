@@ -1,32 +1,29 @@
 import "../App.css";
 import '../styles/showQA.css';
-import PlayersBtnA from "./PlayersBtnA";
+import PlayersBtnAnswer from "./PlayersBtnAnswer";
 import jeopardyLogo from '../images/jeopardy.gif';
 import { useState, useEffect } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-export default function ShowAnswer({ question, onBack, players, updatePlayerScore }) {
+export default function ShowAnswer({ question, backToGameboard, players, updatePlayerScore }) {
     const [imageClass, setImageClass] = useState("");
 
     const handleKeyPress = (e) => {
         if (e.key === "Enter") {
-            onBack();
+            backToGameboard();
         }
     };
 
     useEffect(() => {
-        // Lägg till event listener för tangenttryck
         window.addEventListener("keydown", handleKeyPress);
-
-        // Rensa event listener vid unmount
         return () => {
             window.removeEventListener("keydown", handleKeyPress);
         };
-    }, []); // Körs endast en gång vid montering
+    }, []);
 
     return (
         <div className="background-game">
-            <img src={jeopardyLogo} alt="jeopardy" className="gif" />
+            {/* <img src={jeopardyLogo} alt="jeopardy" className="gif" /> */}
             <h1 id="sub-title" className="title-position">{question.category} - {question.value}p</h1>
             <div className="answer-content border-shine">
                 <h3 dangerouslySetInnerHTML={{ __html: question.answer }} />
@@ -41,16 +38,15 @@ export default function ShowAnswer({ question, onBack, players, updatePlayerScor
                     }} />
             </div>
             <div className="answer-nextbtn-container">
-                <PlayersBtnA
+                <PlayersBtnAnswer
                     players={players}
                     questionValue={question.value}
                     updatePlayerScore={updatePlayerScore}
-                // onDone={onBack}
+                    whichPage={"answer"}
                 />
-                <button className="btn btn-answer-page" onClick={onBack}>
+                <button className="btn btn-arrow btn-answer-page" onClick={backToGameboard}>
                     <FaArrowRightLong />
                 </button>
-
             </div>
         </div>
     )

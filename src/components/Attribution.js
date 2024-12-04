@@ -1,6 +1,7 @@
 import "../App.css";
 import '../styles/attribution.css';
 import React, { useEffect } from "react";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 export default function Attribution({ backToStart }) {
    
@@ -11,14 +12,11 @@ export default function Attribution({ backToStart }) {
     };
 
     useEffect(() => {
-        // Lägg till event listener för tangenttryck
         window.addEventListener("keydown", handleKeyPress);
-
-        // Rensa event listener vid unmount
         return () => {
             window.removeEventListener("keydown", handleKeyPress);
         };
-    }, []); // Körs endast en gång vid montering
+    }, [handleKeyPress]);
    
     return (
         <div className="attribution-page background-game">
@@ -30,8 +28,8 @@ export default function Attribution({ backToStart }) {
                     <li>Game concept and name from Jeopardy!, design made by Jessica Hvirfvel</li>
                 </ul>
             </div>
-            <button className="btn btn-attribution" onClick={backToStart}>
-                Back to Start
+            <button className="btn btn-arrow btn-attribution" onClick={backToStart}>
+                <FaArrowLeftLong/>
             </button>
         </div>
     );
