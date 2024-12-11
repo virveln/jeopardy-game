@@ -1,3 +1,7 @@
+// **************
+// NOT IN USE RIGHT NOW, USING PLAYERSBTNQA INSTEAD
+// **************
+
 import "../App.css";
 import '../styles/playersBtnQA.css';
 import React, { useState, useEffect } from "react";

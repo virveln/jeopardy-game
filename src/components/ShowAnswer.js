@@ -1,13 +1,13 @@
 import "../App.css";
 import '../styles/showQA.css';
-import PlayersBtnAnswer from "./PlayersBtnAnswer";
-import jeopardyLogo from '../images/jeopardy.gif';
+import PlayersBtnQA from "./PlayersBtnQA";
 import { useState, useEffect } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function ShowAnswer({ question, backToGameboard, players, updatePlayerScore }) {
     const [imageClass, setImageClass] = useState("");
 
+    // Shortcut
     const handleKeyPress = (e) => {
         if (e.key === "Enter") {
             backToGameboard();
@@ -23,22 +23,28 @@ export default function ShowAnswer({ question, backToGameboard, players, updateP
 
     return (
         <div className="background-game">
-            {/* <img src={jeopardyLogo} alt="jeopardy" className="gif" /> */}
             <h1 id="sub-title" className="title-position">{question.category} - {question.value}p</h1>
-            <div className="answer-content border-shine">
-                <h3 dangerouslySetInnerHTML={{ __html: question.answer }} />
-                <img
-                    src={question.image}
-                    alt="question"
-                    title={question.imageSource}
-                    className={`question-image ${imageClass}`}
-                    onLoad={(e) => {
-                        const { naturalWidth, naturalHeight } = e.target;
-                        setImageClass(naturalHeight > naturalWidth ? "portrait-img" : "landscape-img");
-                    }} />
+            <div className={`answer-content border-shine ${question.image ? "answer-grid" : ""}`}>
+                {question.image ? (
+                    <>
+                        <h3 className="fade-in" dangerouslySetInnerHTML={{ __html: question.answer }} />
+                        <img
+                            src={question.image}
+                            alt="Bild som representerar svaret"
+                            title={question.imageSource}
+                            className={`fade-in-QA question-image ${imageClass}`}
+                            onLoad={(e) => {
+                                const { naturalWidth, naturalHeight } = e.target;
+                                setImageClass(naturalHeight > naturalWidth ? "portrait-img" : "landscape-img");
+                            }}
+                        />
+                    </>
+                ) : (
+                    <h3 className="centered-text" dangerouslySetInnerHTML={{ __html: question.answer }} />
+                )}
             </div>
             <div className="answer-nextbtn-container">
-                <PlayersBtnAnswer
+                <PlayersBtnQA
                     players={players}
                     questionValue={question.value}
                     updatePlayerScore={updatePlayerScore}

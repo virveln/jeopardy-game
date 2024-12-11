@@ -1,6 +1,6 @@
 .all-answers-page {
     color: white;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .theme-selector {
@@ -10,7 +10,36 @@
     border-radius: 8px;
 }
 
-.answers-table {
+.selection-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.all-answers-page .board {
+    margin-top: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
+    background-color: var(--background-dark-hover);
+}
+
+.all-answers-page .category {
+    font-size: 1em;
+    color: #EEC759;
+}
+
+.answer-cell {
+    font-weight: bold;
+    font-size: 2vh;
+    height: 10.3vh;
+    height: 10vh;
+    padding: 10px;
+}
+
+/*=== THIS STYLE IS FOR AllAnswers.js WHICH IS NOT IN USE RIGHT NOW===*/
+/* .answers-table {
     margin: auto;
     margin-top: 20px;
     width: 100%;
@@ -23,7 +52,14 @@
     background-color: var(--background-dark);
     border: 2px solid rgba(0, 14, 33, 1);
     padding: 12px 10px;
-    text-align: left;   
+    text-align: left;
+}
+
+.answers-table td {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .answers-table th {
@@ -40,12 +76,13 @@
 
 .answers-table tbody td:nth-child(1) {
     width: 70%;
-  }
-  
-  .answers-table tbody td:nth-child(2) {
+}
+
+.answers-table tbody td:nth-child(2) {
     width: 25%;
-  }
-  
-  .answers-table tbody td:nth-child(3) {
+}
+
+.answers-table tbody td:nth-child(3) {
     width: 5%;
-  }
+} */
+

@@ -8,14 +8,29 @@ import Scoreboard from "./components/Scoreboard";
 import GameSettings from "./components/GameSettings";
 import Attribution from "./components/Attribution";
 import Instructions from "./components/Instructions";
-import AllAnswers from './components/AllAnswers';
+import AllAnswers from './components/AllAnswersG';
+
+import { ReactComponent as LightbulbThumbnail } from './images/thumbnails/lightbulb.svg';
+import { ReactComponent as TreeThumbnail } from './images/thumbnails/tree.svg';
+import { ReactComponent as FireworkThumbnail } from './images/thumbnails/firework1.svg';
+// import { ReactComponent as Nyår2025Thumbnail } from './images/thumbnails/firework1.svg';
 
 function App() {
   const [currentPage, setCurrentPage] = useState("start");
   const [selectedCells, setSelectedCells] = useState([]);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
   const [players, setPlayers] = useState([]);
-  const [theme, setTheme] = useState('nyår2024');
+  const [theme, setTheme] = useState('allmant');
+  const [hasAnimated, setHasAnimated] = useState(false); 
+
+
+  const allThemes = [
+    { value: 'allmant', label: 'Allmänt', thumbnail: LightbulbThumbnail },
+    { value: 'jul', label: 'Jul', thumbnail: TreeThumbnail },
+    { value: 'nyår2024', label: 'Nyår 2024', thumbnail: FireworkThumbnail },
+    { value: 'nyår2025', label: 'Nyår 2025', thumbnail: FireworkThumbnail },
+    // { value: 'karlstad', label: 'Karlstahäng', thumbnail: AllmantThumbnail },
+];
 
   const handleQuestionSelection = (category, question) => {
     setSelectedQuestion({
@@ -62,7 +77,9 @@ function App() {
   return (
     <div>
       {currentPage === "allAnswers" && (
-        <AllAnswers/>
+        <AllAnswers
+          allThemes={allThemes}
+        />
       )}
       {currentPage === "start" && (
         <StartPage
@@ -86,6 +103,7 @@ function App() {
           startGame={startGame}
           setPlayers={setPlayers}
           setTheme={setTheme}
+          themes={allThemes}
         />
       )}
       {currentPage === "gameboard" && (
@@ -96,6 +114,8 @@ function App() {
           goToScoreboard={goToScoreboard}
           players={players}
           theme={theme}
+          hasAnimated={hasAnimated}
+          setHasAnimated={setHasAnimated}
         />
       )}
       {currentPage === "showQuestion" && (
@@ -119,6 +139,8 @@ function App() {
         <Scoreboard
           players={players}
           backToGameboard={backToGameboard}
+          theme={theme}
+          setHasAnimated={setHasAnimated}
         />
       )}
     </div>

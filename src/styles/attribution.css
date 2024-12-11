@@ -1,9 +1,9 @@
-/* .attribution-content {
-    min-height: 43vw;
-} */
-
 .attribution-page * {
     color: white;
+}
+
+.attribution-content {
+    min-height: 80vh;
 }
 
 .attribution-page ul {

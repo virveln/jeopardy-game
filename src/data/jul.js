@@ -11,7 +11,7 @@ const images = importAllImages(require.context('../images/jul', true, /\.(avif|j
 export default [
 
     {
-        label: "Jul Edition",
+        label: "Jul",
         category: "Jultraditioner",
         questions: [
             {

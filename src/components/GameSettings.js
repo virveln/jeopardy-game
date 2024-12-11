@@ -2,69 +2,24 @@ import "../App.css";
 import '../styles/gameSettings.css';
 import { useState, useEffect, useRef } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
-import jeopardyLogo from '../images/jeopardy.gif';
-import allmantThumbnail from '../images/allmanbildning/thumbnail.jpeg';
-import julThumbnail from '../images/jul/thumbnail.jpeg';
-import nyår2024Thumbnail from '../images/nyår2024/thumbnail.jpeg';
-import nyår2025Thumbnail from '../images/nyår2025/thumbnail.jpeg';
 
-export default function GameSettings({ startGame, setPlayers, setTheme }) {
+export default function GameSettings({ startGame, setPlayers, setTheme, themes }) {
     const [playerName, setPlayerName] = useState('');
     const [playersList, setPlayersList] = useState([]);
     const [selectedTheme, setSelectedTheme] = useState('allmant');
     const [selectedThemeIndex, setSelectedThemeIndex] = useState(1);
     const inputRef = useRef(null);
 
-    const themes = [
-        { value: 'allmant', label: 'Allmänt', thumbnail: allmantThumbnail },
-        { value: 'jul', label: 'Jul', thumbnail: julThumbnail },
-        { value: 'nyår2024', label: 'Nyår 2024', thumbnail: nyår2024Thumbnail },
-        // { value: 'nyår2025', label: 'Nyår 2025', thumbnail: nyår2025Thumbnail },
-    ];
-
+    // Focus on input field
     useEffect(() => {
         inputRef.current.focus();
     }, []);
 
-    const handleAddPlayer = () => {
-        //Controls id player name is empty
-        if (playerName.trim() === '') {
-            alert('Player name cannot be empty. Add name.');
-            return;
-        }
-
-        // Controls if player name already exists (case-insensitive)
-        const isDuplicate = playersList.some((player) => player.name.toLowerCase() === playerName.trim().toLowerCase());
-        if (isDuplicate) {
-            alert('Player name already exists. Add new name.');
-            return;
-        }
-
-        // Add player
-        setPlayersList([...playersList, { name: playerName, score: 0 }]);
-        setPlayerName('');
-    };
-
-    const handleStartGame = () => {
-        //If no players is added
-        if (playersList.length === 0) {
-            alert('You need to add at least one player to start the game.');
-            return;
-        }
-        setPlayers(playersList); 
-        setTheme(selectedTheme);
-        startGame(); 
-    };
-    const handleInputPress = (e) => {
-        if (e.key === "Enter" && !e.ctrlKey) {
-            handleAddPlayer();
-        }
-    };
-
+    // Shortcuts
     const handleKeyPress = (e) => {
-        if (e.key === "Enter" && e.ctrlKey) {
-            handleStartGame();
-        }
+        // if (e.key === "Enter" && e.ctrlKey) {
+        //     handleStartGame();
+        // }
         if (e.ctrlKey) {
             if (e.key === "ArrowRight") {
                 setSelectedThemeIndex((prevIndex) => (prevIndex % themes.length) + 1);
@@ -74,27 +29,71 @@ export default function GameSettings({ startGame, setPlayers, setTheme }) {
         }
     };
 
-    // When selectedThemeIndex is changed
+    // When selectedThemeIndex is changed (for shortcut)
     useEffect(() => {
         const selectedTheme = themes[selectedThemeIndex - 1]; // -1 för 1-indexering
         if (selectedTheme) {
             const button = document.getElementById(`btn-theme-${selectedTheme.value}`);
             if (button) { button.click(); }
         }
-    }, [selectedThemeIndex]); 
-    
+    }, [selectedThemeIndex]);
+
 
     useEffect(() => {
         window.addEventListener("keydown", handleKeyPress);
         return () => {
             window.removeEventListener("keydown", handleKeyPress);
         };
-    }, [themes]);
+    }, []);
+
+    // Inputfield npt more than 20 characters
+    const handleInputChange = (e) => {
+        if (e.target.value.length <= 20) {
+            setPlayerName(e.target.value);  // Uppdatera playerName om den är inom gränsen
+        } else {
+            // alert("Player name cannot be longer than 15 characters.");
+            alert("Spelarnamn kan inte vara längre än 20 tecken.");
+        }
+    };
+
+    const handleAddPlayer = () => {
+        //Controls id player name is empty
+        if (playerName.trim() === '') {
+            // alert('Player name cannot be empty. Add name.');
+            alert('Spelarnamn kan inte vara tomt. Lägg till spelarnamn.');
+            return;
+        }
+
+        // Controls if player name already exists (case-insensitive)
+        const isDuplicate = playersList.some((player) => player.name.toLowerCase() === playerName.trim().toLowerCase());
+        if (isDuplicate) {
+            // alert('Player name already exists. Add new name.');
+            alert('Spelarnamn finns redan. Lägg till ett nytt.');
+            return;
+        }
+
+        // Add player
+        setPlayersList([...playersList, { name: playerName, score: 0 }]);
+        setPlayerName('');
+        inputRef.current.focus();
+    };
+
+    const handleStartGame = () => {
+        //If no players is added
+        if (playersList.length === 0) {
+            // alert('You need to add at least one player to start the game.');
+            alert('Du måste lägga till minst en spelare för att kunna spela.');
+            return;
+        }
+        setPlayers(playersList);
+        setTheme(selectedTheme);
+        startGame();
+    };
+
 
     return (
         <div className="add-players-container ">
             <div className="add-players-content">
-                {/* <img src={jeopardyLogo} alt="jeopardy" className="gif" /> */}
                 <div className="add-players-inner">
                     <h2 className="title-position">Add Players</h2>
                     <div className="input-container">
@@ -102,8 +101,8 @@ export default function GameSettings({ startGame, setPlayers, setTheme }) {
                             ref={inputRef}
                             type="text"
                             value={playerName}
-                            onChange={(e) => setPlayerName(e.target.value)}
-                            onKeyDown={handleInputPress}
+                            onChange={handleInputChange}
+                            onKeyDown={(e) => { if (e.key === "Enter" && !e.ctrlKey) handleAddPlayer(); }}
                             placeholder="Enter player name"
                             className="input-name"
                         />
@@ -129,8 +128,8 @@ export default function GameSettings({ startGame, setPlayers, setTheme }) {
                                 className={`theme-button ${selectedTheme === theme.value ? 'active' : ''}`}
                                 onClick={() => setSelectedTheme(theme.value)}
                             >
-                                <img src={theme.thumbnail} alt={theme.label} className="theme-thumbnail" />
-                                <span>{theme.label}</span>
+                                <span className="theme-thumbnail"><theme.thumbnail className="svg-img" /></span>
+                                <h4 className="theme-label">{theme.label}</h4>
                             </button>
                         ))}
                     </div>

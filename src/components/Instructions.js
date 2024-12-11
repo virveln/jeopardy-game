@@ -2,10 +2,11 @@ import "../App.css";
 import '../styles/instructions.css';
 import React, { useEffect } from "react";
 import { RxOpenInNewWindow } from "react-icons/rx";
-import { FaArrowLeftLong } from "react-icons/fa6";
+import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 export default function Instructions({ openAllAnswers, backToStart }) {
 
+    //Shortcuts
     const handleKeyPress = (e) => {
         if (e.key === "Enter" | e.key === "Escape") {
             backToStart();
@@ -23,7 +24,7 @@ export default function Instructions({ openAllAnswers, backToStart }) {
         <div className="instruction-page background-game">
             <div className="instruction-content">
                 <h2 className="title-position">Instructions</h2>
-                <div className="instruction-background">
+                <div className="border-shine instruction-background">
                     <h3>Hur man spelar</h3>
                     <p>Spelet är likt konceptet Jeopardy! och går ut på att spelledaren säger svaren och spelarna ställer frågorna. Detta är en webbapplikation som inte är anpassad för att spela på en mobil. <a className="all-answers-link" onClick={openAllAnswers}>Alla svar<RxOpenInNewWindow /></a></p>
                     <table className="instruction-table">
@@ -54,8 +55,8 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                             <tr>
                                 <td className="left">Poäng:</td>
                                 <td>
-                                    Om en spelare svarar rätt, får de poäng motsvarande frågans värde.
-                                    Om de svarar fel, blir det minuspoäng motsvarande frågans värde och nästa spelare får en chans att svara.
+                                    Om en spelare svarar fel, får de minuspoäng motsvarande frågans värde och andra spelare får en chans att svara (spelledare tilldelar detta på 'frågesidan').
+                                    Om en spelare svarar rätt, får de pluspoäng motsvarande frågans värde (spelledare tilldelar detta på 'svarssidan').
                                 </td>
                             </tr>
                             <tr>
@@ -65,37 +66,45 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                         </tbody>
                     </table>
                 </div>
-                <div className="new-content instruction-background">
+                <div className="new-content border-shine instruction-background">
                     <h3>Exempel</h3>
                     <p><b>Spelledarens 'svar': </b>Detta är Sveriges huvudstad.</p>
                     <p><b>Spelarens 'fråga': </b>Vad är Stockholm?</p>
                 </div>
-                <div className="new-content instruction-background">
+                <div className="new-content border-shine instruction-background">
                     <h3>Genvägar</h3>
-                    <table className="control-table ">
+                    <table className="control-table">
                         <tbody>
-                            <tr>
-                                <td className="left">[ F11 ]</td>
+                            <tr className="table-margin">
+                                <td className="left"><kbd>F11</kbd></td>
                                 <td>Helskräm</td>
                             </tr>
+                            <tr className="table-margin">
+                                <td className="left"><kbd>Enter</kbd> / <kbd>Esc</kbd></td>
+                                <td>Tillbaka till föregående</td>
+                            </tr>
                             <tr>
-                                <td className="left">[ Ctrl + piltangent ]</td>
+                                <td className="left"><kbd>Ctrl</kbd> + <kbd><FaArrowLeftLong/></kbd> / <kbd><FaArrowRightLong/></kbd></td>
                                 <td>Växlar mellan teman</td>
                             </tr>
-                            <tr>
-                                <td className="left">[ Ctrl + Enter ]</td>
+                            {/* <tr>
+                                <td className="left"><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td>
                                 <td>Startar spel</td>
+                            </tr> */}
+                            <tr>
+                                <td className="left"><kbd>Tab</kbd></td>
+                                <td>Tabbar igenom val av frågor i spelplan</td>
                             </tr>
                             <tr>
-                                <td className="left">[ Tab ]</td>
-                                <td>Tabbar igenom frågor i spelplan</td>
+                                <td className="left"><kbd>Enter</kbd></td>
+                                <td>Går vidare till svar/spelplan</td>
                             </tr>
                             <tr>
-                                <td className="left">[ Enter ]</td>
-                                <td>Går vidare till svar och tillbaka till föregående</td>
+                                <td className="left"><kbd>1</kbd> - <kbd>9</kbd></td>
+                                <td>För att ge + / - poäng till (max 9) spelare (vänster till höger)</td>
                             </tr>
                             <tr>
-                                <td className="left">[ S ]</td>
+                                <td className="left"><kbd>S</kbd></td>
                                 <td>Visar scoreboard</td>
                             </tr>
                         </tbody>

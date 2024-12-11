@@ -26,6 +26,7 @@
     margin-top: 3vw;
     padding: 0.3vw;
     width: 25vw;
+    filter: drop-shadow(0 5px 5px var(--background-dark));
 }
 
 .input-name {
@@ -88,6 +89,7 @@
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    filter: drop-shadow(0 5px 5px var(--background-dark));
 }
 
 .theme-button {
@@ -103,11 +105,10 @@
     transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     background-color:var(--background-dark);
     min-width: 8vw;
-    min-height: 9.5vw;
+    min-height: 9vw;
 
     max-width: 9vw;
-    max-height: 10.5vw; 
-
+    max-height: 10vw;
     word-break: break-all;
 }
 
@@ -119,18 +120,21 @@
     margin-bottom: 10px;
 }
 
-.theme-button span {
-    font-size: 0.9vw;
-    text-align: center;
-    font-weight: bold;
-    color: #fff;
+/*SVG STYLE*/
+.svg-img {
+    width: 5vw;
+}
+
+.svg-img * {
+    filter: drop-shadow(2px 4px 6px rgba(255, 196, 225, 0.5));
+    transition: fill 0.3s ease, filter 0.3s ease;
 }
 
 .theme-button.active {
+    background-color:var(--background-dark-hover);
     transform: scale(1.05);
     border: 2px solid var(--border-blue);
     box-shadow: 0 0 8px var(--border-shadow-blue);
-    background-color:var(--background-dark-hover);
 }
 
 .theme-button:hover {
@@ -138,11 +142,32 @@
     transform: scale(1.05);
 }
 
+.theme-button:hover .svg-img *,
+.theme-button.active .svg-img * {
+    fill: #A31ACB !important;
+    filter: drop-shadow(4px 6px 8px var(--text-shadow-pink));
+}
+
+/*THUMBNAIL TEXT*/
+.theme-button .theme-label {
+    font-size: 0.9vw;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+    padding-top: 5px;
+}
+
+/* .theme-label:hover,
+.theme-label.active {
+    color: var(--primary-pink);
+} */
+
 @media screen and (max-width: 1300px) {
     .input-container {
         margin-top: 3vw;
         padding: 5px;
-        width: 320px;  
+        width: 320px;
     }
 
     .input-name {
@@ -163,10 +188,10 @@
 
     .theme-button {
         min-width: 110px;
-        min-height: 140px;
+        min-height: 120px;
 
         max-width: none;
-        max-height: none; 
+        max-height: none;
     }
 
     .theme-button img.theme-thumbnail {
@@ -175,7 +200,11 @@
         margin-bottom: 10px;
     }
 
-    .theme-button span {
+    .svg-img {
+        width: 80px;
+    }
+
+    .theme-button .theme-label {
         font-size: 12px;
     }
 }

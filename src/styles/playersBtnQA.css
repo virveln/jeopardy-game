@@ -1,0 +1,132 @@
+.player-answer {
+    display: grid;    
+    margin-top: 20px;
+    margin-top: 0;
+    width: fit-content;
+    /* max-width: 80vw; */
+    margin: auto;
+    gap: 0 20px;
+    padding-left: 40.5px;
+}
+
+.player-answer .player {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    /* min-width: 150px; */
+}
+
+.player-answer .player-name {
+    font-weight: bold;
+    font-size: 1.4vw;
+    margin: 0.8vw;
+}
+
+.player-answer .btn-container {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 14, 33, 0.7);
+    border: 2px solid var(--primary-pink);
+    border-radius: 8px;
+    box-shadow: 0 0 8px var(--primary-shadow-pink);
+    transition: transform 0.2s ease;
+}
+
+.btn-answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.1vw;
+    height: 2.4vw;
+    font-size: 1.5vw;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-correct {
+    background-color: transparent;
+    color: #45a049;
+}
+
+.btn-incorrect {
+    background-color: transparent;
+    color: #e53935;
+}
+
+.btn-correct:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+.btn-incorrect:hover {
+    background-color: #e53935;
+    color: white;
+}
+
+.floating-animation {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: fly-up 1s ease forwards;
+    font-size: 2rem;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.correct-animation {
+    color: #28a745;
+}
+
+.incorrect-animation {
+    color: #dc3545;
+}
+
+.btn-answer.disabled-red {
+    background-color: #e53935;
+    color: white;
+    cursor: default;
+}
+
+.btn-answer.disabled-green {
+    background-color: #28a745;
+    color: white;
+    cursor: default;
+}
+
+/* Animationens nyckframes */
+@keyframes fly-up {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-50%, -150%) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -200%) scale(0.8);
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .player-answer .player-name {
+        font-size: 1.2em;
+        margin: 10px;
+    }
+
+    .btn-answer {
+        width: 40px;
+        height: 30px;
+        font-size: 1.5em;
+    }
+}

@@ -13,7 +13,7 @@ const importAllImages = (r) => {
 export default [
  
     {
-        label: "Nyår 2024 Edition",
+        label: "Nyår 2024",
         category: "Nyår",
         questions: [
             {
@@ -148,7 +148,7 @@ export default [
         ],
     },
     {
-        category: " (Ny) Musik",
+        category: "Musik",
         questions: [
             {
                 id: 16,
@@ -193,7 +193,7 @@ export default [
         ],
     },
     {
-        category: " (Nyårs)löften",
+        category: "Löften",
         questions: [
             {
                 id: 21,

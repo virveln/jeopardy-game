@@ -15,12 +15,11 @@
 
 .instruction-background {
     background-color: var(--background-dark);
-    border: 2px solid var(--border-blue);
-    border-radius: 8px;
-    box-shadow: 0 0 8px var(--border-shadow-blue);
     max-width: 600px;
     padding: 5px 20px 20px 20px;
     margin: auto;
+    line-height: 1.3em;
+
 }
 
 .instruction-page h2 {
@@ -37,21 +36,23 @@
     color: rgb(200, 200, 200);
 }
 
-.instruction-list,
+/* .instruction-list,
 .control-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
+} */
 
-.instruction-table {
+.instruction-table,
+.control-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 16px;
-    text-align: left;
+    /* text-align: left; */
 }
 
-.instruction-table td {
+.instruction-table td,
+.control-table td {
     padding: 8px 0;
     vertical-align: top;
 }
@@ -67,3 +68,4 @@
     display: flex;
     justify-content: center;
 }
+

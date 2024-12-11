@@ -1,12 +1,12 @@
 import "../App.css";
 import '../styles/showQA.css';
-import jeopardyLogo from '../images/jeopardy.gif';
-import PlayersBtnAnswer from "./PlayersBtnAnswer";
+import PlayersBtnQA from "./PlayersBtnQA";
 import { useEffect } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function ShowQuestion({ question, goToAnswer, players, updatePlayerScore }) {
 
+    // Shortcut
     const handleKeyPress = (e) => {
         if (e.key === "Enter") {
             goToAnswer();
@@ -22,13 +22,12 @@ export default function ShowQuestion({ question, goToAnswer, players, updatePlay
 
     return (
         <div className="background-game">
-            {/* <img src={jeopardyLogo} alt="jeopardy" className="gif" /> */}
             <h1 id="sub-title" className="title-position">{question.category} - {question.value}p</h1>
-            <div className="question-content border-shine">
-                <h3 dangerouslySetInnerHTML={{ __html: question.question }} />
+            <div className="question-content border-shine ">
+                <h3 className="fade-in-QA" dangerouslySetInnerHTML={{ __html: question.question }} />
             </div>
             <div className="answer-nextbtn-container">
-                <PlayersBtnAnswer
+                <PlayersBtnQA
                     players={players}
                     questionValue={question.value}
                     updatePlayerScore={updatePlayerScore}

@@ -20,7 +20,7 @@ export default [
                 level: 100,
                 question: "",
                 answer: "",
-                image: images[''],
+                image: images[""],
                 imageSource: ""
             },
             {
@@ -65,7 +65,7 @@ export default [
                 level: 100,
                 question: "",
                 answer: "",
-                image: images[''],
+                image: images[""],
                 imageSource: ""
             },
             {
@@ -110,7 +110,7 @@ export default [
                 level: 100,
                 question: "",
                 answer: "",
-                image: images[''],
+                image: images[""],
                 imageSource: ""
             },
             {
@@ -155,7 +155,7 @@ export default [
                 level: 100,
                 question: "",
                 answer: "",
-                image: images[''],
+                image: images[""],
                 imageSource: ""
             },
             {
@@ -200,7 +200,7 @@ export default [
                 level: 100,
                 question: "",
                 answer: "",
-                image: images[''],
+                image: images[""],
                 imageSource: ""
             },
             {

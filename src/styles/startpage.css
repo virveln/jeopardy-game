@@ -3,51 +3,62 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: -550px;
-  }
-  
-  .background-start {
-    background-image: url('../images/jeopardy-background.png');
+    /* margin-bottom: -550px; */
+}
+
+.background-start {
+    background-image: url('../images/earth.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-  }
+}
 
-  .btn-start-container {
+/* .start-title {
+    margin-top: 10vh;
+    margin-bottom: 0;
+    font-size: 10em;
+    font-size: 170px;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 5px var(--primary-shadow-pink);
+    text-shadow: 0 0 10px var(--text-shadow-pink);
+} */
+
+.jeopardy-name {
+    width: 60%;
+    margin-bottom: 50px;
+    margin-top: 80px;
+    filter: drop-shadow(0 -5px 5px var(--primary-shadow-pink));
+}
+
+.btn-start-container {
     display: flex;
     flex-direction: row;
     gap: 10px;
-  }
+}
 
-  .btn-startpage {
-    margin-top: 42vw;
-    margin-top: 44vw;
+.btn-startpage {
+    /* margin-top: 40vw;
+    margin-top: 35vw; */
     margin-bottom: 0;
-  }
+}
 
-  .btn-to-attribution {
+.btn-to-attribution {
     color: #fff;
     position: fixed;
     bottom: 10px;
     left: 50px;
     text-decoration: underline;
     cursor: pointer;
-  }
+}
 
-  .start-page .tips {
+.start-page .tips {
     color: #fff;
     position: fixed;
-    bottom: 10px;
+    bottom: 7px;
     right: 50px;
-  }
+}
 
-  @media screen and (max-width: 1200px) {
-    .start-title {
-        margin-top: 450px;
-      }
+@media screen and (max-width: 1300px) {
 
-      .btn-startpage {
-        margin-top: 500px;
-      }
-  }
+}

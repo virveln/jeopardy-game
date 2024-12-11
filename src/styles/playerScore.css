@@ -1,0 +1,112 @@
+.player-score-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    color: white;
+    margin-top: 50px;
+    padding: 0 20px;
+    min-height: 68vh;
+    align-items: center;
+}
+
+.player-score-content {
+    background-image: url('../images/earth.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 230px;
+    height: 300px;
+    /* width: 32vh;
+    height: 42vh; */
+    max-width: 320px;
+    max-height: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: drop-shadow(0 5px 5px var(--background-dark-hover));
+    opacity: 0;
+}
+
+.player-score-container .score-value {
+    font-size: 2em;
+    /* font-size: 4.5vh; */
+    margin: 30px 0 20px 0;
+    font-weight: bold;
+    filter: drop-shadow(0 0 5px var(--background-dark-hover));
+}
+
+.player-score-container .score-name {
+    font-size: 1.3em;
+    /* font-size: 3vh; */
+    margin: 15px;
+    filter: drop-shadow(0 0 5px var(--background-dark-hover));
+    /* font-size: 10vw; */
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
+    hyphens: auto;   
+    /* word-break: break-all; */
+}
+
+.player-score-container .line {
+    background-color: var(--background-dark-hover);
+    height: 5px;
+    width: 100%;
+    border: 0;
+    margin: 0;
+}
+
+.trophy {
+    font-size: 50px;
+    /* font-size: 7vh; */
+    /* margin: auto auto 20px auto; */
+    margin: auto 10px 20px auto;
+    filter: drop-shadow(0 5px 5px var(--background-dark-hover));
+    color: transparent;
+}
+
+.trophy.first-place {
+    color: gold;
+}
+
+.trophy.second-place {
+    color: silver;
+}
+
+.trophy.third-place {
+    color: #cd7f32;
+}
+
+@keyframes fadeInPlayerScore {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media screen and (max-width: 1300px) {
+    .player-score-content {
+        width: 230px;
+        height: 300px;
+    }
+
+    .player-score-container .score-value {
+        font-size: 2em;
+    }
+    
+    .player-score-container .score-name {
+        font-size: 1.3em;
+    }
+
+    .trophy {
+        font-size: 50px;
+    }
+}

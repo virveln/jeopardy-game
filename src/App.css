@@ -5,20 +5,22 @@
   font-style: normal;
 }
 
-:root {
-  --primary-color-pink: #A31ACB; 
-  --primary-color-shadow-pink:rgba(163, 26, 203, 0.7);
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
 
+:root {
   --primary-color-darker: #025966;
   --primary-color-transparent: rgb(4, 160, 184, 0.9);
-
+  
   --text-pink: rgb(136, 79, 197); 
   --text-shadow-pink: rgba(89, 52, 129, 0.5);
-
-  /*bra färger*/
+  
   --background-dark: rgba(0, 14, 33, 0.7);
   --background-dark-hover: rgba(0, 14, 33, 1);
 
+  --primary-pink: #A31ACB; 
+  /* --primary-color-shadow-pink:#a31acb; */
+  --primary-shadow-pink:rgba(163, 26, 203, 0.7);
 
   --primary-blue: #00d1ff;
   --primary-blue-hover: #0092B3;
@@ -39,14 +41,19 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   text-align: center;
+  /* font-family: 'Quicksand';
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 120%; */
 }
 
 h1,
 h2 {
   font-family: 'geopardy';
   color: #fff;  
-  -webkit-text-stroke: 2px var(--primary-color-shadow-pink);
-  text-shadow: 0 0 20px var(--text-shadow-pink);
+  -webkit-text-stroke: 2px var(--primary-shadow-pink);
+  text-shadow: 0 0 10px var(--text-shadow-pink);
+  filter: drop-shadow(0 0 5px var(--text-shadow-pink));
+
   /* font-size: 2.5em;
   font-size: 3em; */
   margin-top: 0;
@@ -54,6 +61,21 @@ h2 {
 
 ul {
   list-style: none;
+}
+
+kbd {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0 2px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #333;
+  background-color: #f5f5f5; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-shadow: 0 2px 0 #bbb; 
+  text-shadow: 0 1px 0 #fff; 
+  line-height: 1.4;
 }
 
 .btn {
@@ -65,10 +87,12 @@ ul {
   color: #fff;
   background-color: rgba(0, 14, 33, 0.7);
   border-radius: 8px;
-  border: 2px solid var(--primary-color-pink);
-  box-shadow: 0 0 5px var(--primary-color-shadow-pink);
+  border: 2px solid var(--primary-pink);
+  box-shadow: 0 0 5px var(--primary-shadow-pink);
   transition: background-color 0.3s ease, transform 0.2s ease;
   font-size: 0.9vw;
+  /* filter: drop-shadow(0 0 5px var(--primary-shadow-pink)); */
+  /* box-shadow: inset 0 0 5px var(--primary-shadow-pink); */
 }
 
 .btn:hover,

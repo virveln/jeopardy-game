@@ -1,7 +1,11 @@
+// **************
+// NOT IN USE RIGHT NOW, USING ALLANSWERSG INSTEAD
+// **************
+
 import '../styles/allAnswers.css';
 import React, { useState, useEffect } from 'react';
 
-export default function AllAnswers() {
+export default function AllAnswers({ allThemes }) {
     const [theme, setTheme] = useState('allmant');
     const [data, setData] = useState([]);
 
@@ -14,13 +18,12 @@ export default function AllAnswers() {
 
     return (
         <div className="background-game all-answers-page">
-            <h1>All Answers</h1>
+            <h1>Jeopardy Answers</h1>
             {/* Dropdown för att välja tema */}
             <select value={theme} onChange={(e) => setTheme(e.target.value)} className="theme-selector">
-                <option value="allmant">Allmänt</option>
-                <option value="jul">Jul</option>
-                <option value="nyår2024">Nyår 2024</option>
-                <option value="nyår2025">Nyår 2025</option>
+                {allThemes.map((theme) => (
+                    <option value={theme.value}>{theme.label}</option>
+                ))}
             </select>
 
             {data.length > 0 ? (

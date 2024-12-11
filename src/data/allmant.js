@@ -12,7 +12,7 @@ const images = importAllImages(require.context('../images/allmanbildning', true,
 export default [
 
     {
-        label: "Allmänbildning Edition",
+        label: "Allmänt",
         category: "Svensk Historia",
         questions: [
             {
@@ -186,7 +186,7 @@ export default [
                 id: 20,
                 level: 500,
                 question: "Denna dystopiska roman från 1954, skriven av William Golding, handlar om en grupp pojkar strandade på en ö.",
-                answer: "Vad är Flugornas herre?",
+                answer: "Vad är <i>Flugornas herre</i> / <i>Lord of the Flies</i>?",
                 image: images["flugornasherre.webp"],
                 imageSource: "Image from Googlee Play"
             }
