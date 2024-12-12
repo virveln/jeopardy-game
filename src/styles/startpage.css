@@ -29,6 +29,10 @@
     margin-bottom: 50px;
     margin-top: 80px;
     filter: drop-shadow(0 -5px 5px var(--primary-shadow-pink));
+    transform: scale(0);
+    /* Behåll proportionerna */
+    animation: growBounce 1.5s ease-out forwards 0.2s;
+    transform-origin: center center;
 }
 
 .btn-start-container {
@@ -57,6 +61,18 @@
     position: fixed;
     bottom: 7px;
     right: 50px;
+}
+
+@keyframes growBounce {
+    0% {
+        transform: scale(0); /* Börjar osynligt */
+    }
+    70% {
+        transform: scale(1.1); /* Väx till lite större än originalstorlek */
+    }
+    100% {
+        transform: scale(1); /* Tillbaka till 100% storlek */
+    }
 }
 
 @media screen and (max-width: 1300px) {
