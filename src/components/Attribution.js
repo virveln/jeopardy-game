@@ -6,7 +6,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 export default function Attribution({ backToStart }) {
    
     const handleKeyPress = (e) => {
-        if (e.key === "Enter" | e.key === "Escape") {
+        if (e.key === "Escape") {
             backToStart();
         }
     };
@@ -28,7 +28,7 @@ export default function Attribution({ backToStart }) {
                     <li>Game concept from Jeopardy!, design made by Jessica Hvirfvel</li>
                 </ul>
             </div>
-            <button className="btn btn-arrow btn-attribution" onClick={backToStart}>
+            <button className="btn btn-arrow btn-attribution btn-top" onClick={backToStart}>
                 <FaArrowLeftLong/>
             </button>
         </div>

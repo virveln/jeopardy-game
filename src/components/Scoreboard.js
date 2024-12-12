@@ -51,7 +51,7 @@ export default function Scoreboard({ players, backToGameboard, theme, setHasAnim
             <PlayerScore
                 players={players}
             />
-            <div className="btn-scoreboard-container">
+            <div className="btn-scoreboard-container btn-top">
                 <button className="btn btn-arrow btn-scoreboard" onClick={backToGameboard}>
                     <FaArrowLeftLong />
                 </button>

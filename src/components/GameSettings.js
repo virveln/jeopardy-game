@@ -2,8 +2,9 @@ import "../App.css";
 import '../styles/gameSettings.css';
 import { useState, useEffect, useRef } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
-export default function GameSettings({ startGame, setPlayers, setTheme, themes }) {
+export default function GameSettings({ startGame, setPlayers, setTheme, themes, backToStart }) {
     const [playerName, setPlayerName] = useState('');
     const [playersList, setPlayersList] = useState([]);
     const [selectedTheme, setSelectedTheme] = useState('allmant');
@@ -17,10 +18,14 @@ export default function GameSettings({ startGame, setPlayers, setTheme, themes }
 
     // Shortcuts
     const handleKeyPress = (e) => {
-        // if (e.key === "Enter" && e.ctrlKey) {
+        // if (e.key === "Enter" && e.ctrlKey || e.key === "Enter" && e.metaKey) {
         //     handleStartGame();
         // }
-        if (e.ctrlKey) {
+        if (e.key === "Escape") {
+            backToStart();
+        }
+
+        if (e.ctrlKey || e.metaKey) {
             if (e.key === "ArrowRight") {
                 setSelectedThemeIndex((prevIndex) => (prevIndex % themes.length) + 1);
             } else if (e.key === "ArrowLeft") {
@@ -139,6 +144,9 @@ export default function GameSettings({ startGame, setPlayers, setTheme, themes }
                 className="btn start-game-btn"
                 onClick={handleStartGame}>
                 Start Game
+            </button>
+            <button className="btn btn-arrow btn-top" onClick={backToStart}>
+                <FaArrowLeftLong/>
             </button>
         </div>
     );

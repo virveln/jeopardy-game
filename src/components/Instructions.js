@@ -8,7 +8,7 @@ export default function Instructions({ openAllAnswers, backToStart }) {
 
     //Shortcuts
     const handleKeyPress = (e) => {
-        if (e.key === "Enter" | e.key === "Escape") {
+        if (e.key === "Escape") {
             backToStart();
         }
     };
@@ -79,13 +79,17 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                                 <td className="left"><kbd>F11</kbd></td>
                                 <td>Helskräm</td>
                             </tr>
+                            <tr>
+                                <td className="left"><kbd>Enter</kbd></td>
+                                <td>Startar spel / Går vidare till starta svar/spelplan</td>
+                            </tr>
                             <tr className="table-margin">
-                                <td className="left"><kbd>Enter</kbd> / <kbd>Esc</kbd></td>
+                                <td className="left"><kbd>Esc</kbd></td>
                                 <td>Tillbaka till föregående</td>
                             </tr>
                             <tr>
                                 <td className="left"><kbd>Ctrl</kbd> + <kbd><FaArrowLeftLong/></kbd> / <kbd><FaArrowRightLong/></kbd></td>
-                                <td>Växlar mellan teman</td>
+                                <td>Växlar mellan teman i spelinställningar</td>
                             </tr>
                             {/* <tr>
                                 <td className="left"><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td>
@@ -94,10 +98,6 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                             <tr>
                                 <td className="left"><kbd>Tab</kbd></td>
                                 <td>Tabbar igenom val av frågor i spelplan</td>
-                            </tr>
-                            <tr>
-                                <td className="left"><kbd>Enter</kbd></td>
-                                <td>Går vidare till svar/spelplan</td>
                             </tr>
                             <tr>
                                 <td className="left"><kbd>1</kbd> - <kbd>9</kbd></td>
@@ -110,7 +110,7 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                         </tbody>
                     </table>
                 </div>
-                <div className="btn-instructions-container">
+                <div className="btn-instructions-container btn-top">
                     <button className="btn btn-arrow btn-instructions" onClick={backToStart}><FaArrowLeftLong /></button>
                 </div>
             </div>

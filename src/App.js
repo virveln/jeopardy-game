@@ -104,6 +104,7 @@ function App() {
           setPlayers={setPlayers}
           setTheme={setTheme}
           themes={allThemes}
+          backToStart={backToStart}
         />
       )}
       {currentPage === "gameboard" && (

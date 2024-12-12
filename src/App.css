@@ -12,8 +12,8 @@
   --primary-color-darker: #025966;
   --primary-color-transparent: rgb(4, 160, 184, 0.9);
   
-  --text-pink: rgb(136, 79, 197); 
-  --text-shadow-pink: rgba(89, 52, 129, 0.5);
+  /* --text-pink: rgb(136, 79, 197); 
+  --text-shadow-pink: rgba(89, 52, 129, 0.5); */
   
   --background-dark: rgba(0, 14, 33, 0.7);
   --background-dark-hover: rgba(0, 14, 33, 1);
@@ -52,7 +52,7 @@ h2 {
   color: #fff;  
   -webkit-text-stroke: 2px var(--primary-shadow-pink);
   text-shadow: 0 0 10px var(--text-shadow-pink);
-  filter: drop-shadow(0 0 5px var(--text-shadow-pink));
+  filter: drop-shadow(0 0 5px rgba(242, 102, 171, 0.2));
 
   /* font-size: 2.5em;
   font-size: 3em; */
@@ -100,11 +100,20 @@ kbd {
   background-color: #0c2247;
   background-color: rgba(0, 14, 33, 0.8);
   transform: translateY(-2px);
+  filter: drop-shadow(0 5px 5px rgba(0, 14, 33, 0.5));
+
 }
 
 .btn-arrow {
   font-size: 1.5em;
   padding: 6px 15px 1px 15px;
+}
+
+.btn-top {
+  position: absolute;
+  top: 20px;
+  /* left: 10vw; */
+  left: 50px;
 }
 
 .gif {
