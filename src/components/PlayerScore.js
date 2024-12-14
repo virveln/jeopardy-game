@@ -41,14 +41,12 @@ export default function PlayerScore({ players }) {
                 : `${(sortedPlayers.indexOf(player) + 1) * 0.5}s`; // Spelare utan rank får 0.75s intervall efter rankade
             // const animationDelay = `${(sortedPlayers.indexOf(player)) * 0.75}s`;
 
+            
                 return (
                     <div
                         className={`player-score-content border-shine ${rankClass}`}
                         key={player.name}
-                        style={{
-                            animation: "fadeInPlayerScore 1s ease-in-out forwards",
-                            animationDelay: animationDelay,
-                        }}
+                        style={{ animationDelay: animationDelay, }}
                     >                        
                     <p className="score-value">{player.score}p</p>
                         <hr className="line" />

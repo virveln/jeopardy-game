@@ -27,7 +27,7 @@ export default function ShowAnswer({ question, backToGameboard, players, updateP
             <div className={`answer-content border-shine ${question.image ? "answer-grid" : ""}`}>
                 {question.image ? (
                     <>
-                        <h3 className="fade-in" dangerouslySetInnerHTML={{ __html: question.answer }} />
+                        <h3 className="fade-in-QA" dangerouslySetInnerHTML={{ __html: question.answer }} />
                         <img
                             src={question.image}
                             alt="Bild som representerar svaret"

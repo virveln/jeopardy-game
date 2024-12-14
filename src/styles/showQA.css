@@ -75,6 +75,7 @@
     width: calc(80vw + 100px);
     margin: auto;
     /* margin: 0 2vw; */
+    margin-top: 20px;
 }
 
 .answer-content .centered-text {

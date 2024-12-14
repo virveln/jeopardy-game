@@ -79,22 +79,22 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                                 <td className="left"><kbd>F11</kbd></td>
                                 <td>Helskräm</td>
                             </tr>
-                            <tr>
-                                <td className="left"><kbd>Enter</kbd></td>
-                                <td>Startar spel / Går vidare till starta svar/spelplan</td>
-                            </tr>
                             <tr className="table-margin">
                                 <td className="left"><kbd>Esc</kbd></td>
                                 <td>Tillbaka till föregående</td>
                             </tr>
                             <tr>
+                                <td className="left"><kbd>Enter</kbd></td>
+                                <td>Spela spel / Går vidare till starta svar/spelplan</td>
+                            </tr>
+                            <tr>
                                 <td className="left"><kbd>Ctrl</kbd> + <kbd><FaArrowLeftLong/></kbd> / <kbd><FaArrowRightLong/></kbd></td>
                                 <td>Växlar mellan teman i spelinställningar</td>
                             </tr>
-                            {/* <tr>
+                            <tr>
                                 <td className="left"><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td>
-                                <td>Startar spel</td>
-                            </tr> */}
+                                <td>Starta spel</td>
+                            </tr>
                             <tr>
                                 <td className="left"><kbd>Tab</kbd></td>
                                 <td>Tabbar igenom val av frågor i spelplan</td>

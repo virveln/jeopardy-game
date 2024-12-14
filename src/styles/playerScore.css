@@ -27,6 +27,7 @@
     align-items: center;
     filter: drop-shadow(0 5px 5px var(--background-dark-hover));
     opacity: 0;
+    animation: fadeInPlayerScore 1s ease-in-out forwards;
 }
 
 .player-score-container .score-value {

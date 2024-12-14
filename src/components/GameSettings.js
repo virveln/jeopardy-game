@@ -10,6 +10,7 @@ export default function GameSettings({ startGame, setPlayers, setTheme, themes, 
     const [selectedTheme, setSelectedTheme] = useState('allmant');
     const [selectedThemeIndex, setSelectedThemeIndex] = useState(1);
     const inputRef = useRef(null);
+    const startGameBtnRef = useRef(null);
 
     // Focus on input field
     useEffect(() => {
@@ -18,9 +19,12 @@ export default function GameSettings({ startGame, setPlayers, setTheme, themes, 
 
     // Shortcuts
     const handleKeyPress = (e) => {
-        // if (e.key === "Enter" && e.ctrlKey || e.key === "Enter" && e.metaKey) {
-        //     handleStartGame();
-        // }
+        // Click on Start Game button when using ctrl/command + enter
+        if (e.key === "Enter" && e.ctrlKey || e.key === "Enter" && e.metaKey) {
+            if (startGameBtnRef.current) {
+                startGameBtnRef.current.click(); 
+            }
+        }
         if (e.key === "Escape") {
             backToStart();
         }
@@ -141,12 +145,13 @@ export default function GameSettings({ startGame, setPlayers, setTheme, themes, 
                 </div>
             </div>
             <button
+                ref={startGameBtnRef}
                 className="btn start-game-btn"
                 onClick={handleStartGame}>
                 Start Game
             </button>
             <button className="btn btn-arrow btn-top" onClick={backToStart}>
-                <FaArrowLeftLong/>
+                <FaArrowLeftLong />
             </button>
         </div>
     );

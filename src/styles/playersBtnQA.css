@@ -1,12 +1,16 @@
 .player-answer {
-    display: grid;    
-    margin-top: 20px;
+    /* display: grid; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* margin-top: 20px; */
     margin-top: 0;
     width: fit-content;
     /* max-width: 80vw; */
     margin: auto;
     gap: 0 20px;
     padding-left: 40.5px;
+
 }
 
 .player-answer .player {
@@ -17,6 +21,7 @@
     padding: 10px;
     color: white;
     /* min-width: 150px; */
+    min-width: 180px;
 }
 
 .player-answer .player-name {
