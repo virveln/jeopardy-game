@@ -2,6 +2,7 @@ import "../App.css";
 import '../styles/startpage.css';
 import React, { useEffect } from "react";
 import jeopardyName from '../images/jeopardy-name2.png'
+import StarTrail from "./StarTrail";
 
 export default function StartPage({ goToGameSettings, goToInstructions, goToAttributions }) {
     // Shortcuts
@@ -23,9 +24,10 @@ export default function StartPage({ goToGameSettings, goToInstructions, goToAttr
             window.removeEventListener("keydown", handleKeyPress);
         };
     }, []);
-    
+
     return (
         <div className="start-page background-start">
+            <StarTrail />
             {/* <h1 className='start-title'>JEOPARDY</h1> */}
             <img className="jeopardy-name" src={jeopardyName} alt="jeopardy" />
             <div className="btn-start-container">

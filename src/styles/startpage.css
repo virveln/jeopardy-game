@@ -4,6 +4,9 @@
     align-items: center;
     justify-content: center;
     /* margin-bottom: -550px; */
+    position: relative;
+    overflow: hidden;
+    margin: 0;
 }
 
 .background-start {
