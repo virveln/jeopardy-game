@@ -8,13 +8,13 @@ export default function StarTrail() {
     const size = Math.random() * 7 + 1;
 
     // const newStar = {
-    //   id: Date.now(), // Unikt ID för varje stjärna
+    //   id: Date.now(), 
     //   x: e.clientX,
     //   y: e.clientY,
     //   size: size,
     // };
 
-    const offset = 20; // Maximal förskjutning i pixlar
+    const offset = 20;
     const newStar = {
       id: Date.now(),
       x: e.clientX + (Math.random() - 0.5) * offset,
@@ -24,7 +24,7 @@ export default function StarTrail() {
 
     setStars((prev) => [...prev, newStar]);
 
-    // Rensa stjärnan efter 1 sekund
+    // Clear start after 1 sec
     setTimeout(() => {
       setStars((prev) => prev.filter((star) => star.id !== newStar.id));
     }, 1000);
