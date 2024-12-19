@@ -21,8 +21,8 @@ function App() {
   const [selectedQuestion, setSelectedQuestion] = useState(null);
   const [players, setPlayers] = useState([]);
   const [theme, setTheme] = useState('allmant');
-  const [hasAnimated, setHasAnimated] = useState(false); 
-
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const [allCellsPlayed, setAllCellsPlayed] = useState(false);
 
   const allThemes = [
     { value: 'allmant', label: 'Allmänt', thumbnail: LightbulbThumbnail },
@@ -30,7 +30,9 @@ function App() {
     { value: 'nyår2024', label: 'Nyår 2024', thumbnail: FireworkThumbnail },
     // { value: 'nyår2025', label: 'Nyår 2025', thumbnail: FireworkThumbnail },
     // { value: 'karlstad', label: 'Karlstahäng', thumbnail: AllmantThumbnail },
-];
+  ];
+
+  
 
   const handleQuestionSelection = (category, question) => {
     setSelectedQuestion({
@@ -117,6 +119,7 @@ function App() {
           theme={theme}
           hasAnimated={hasAnimated}
           setHasAnimated={setHasAnimated}
+          setAllCellsPlayed={setAllCellsPlayed}
         />
       )}
       {currentPage === "showQuestion" && (
@@ -141,6 +144,7 @@ function App() {
           players={players}
           backToGameboard={backToGameboard}
           theme={theme}
+          allCellsPlayed={allCellsPlayed}
           setHasAnimated={setHasAnimated}
         />
       )}

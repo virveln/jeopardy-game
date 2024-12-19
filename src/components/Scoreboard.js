@@ -3,10 +3,11 @@ import '../styles/scoreboard.css';
 import { useEffect, useState } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import PlayerScore from "./PlayerScore";
+import Confetti from "react-confetti";
 
-export default function Scoreboard({ players, backToGameboard, theme, setHasAnimated }) {
+export default function Scoreboard({ players, backToGameboard, theme, allCellsPlayed, setHasAnimated }) {
     const [data, setData] = useState([]);
-    
+
     // Load data based on theme
     useEffect(() => {
         import(`../data/${theme}.js`)
@@ -16,7 +17,7 @@ export default function Scoreboard({ players, backToGameboard, theme, setHasAnim
 
     // Shortcuts
     const handleKeyPress = (e) => {
-        if (e.key === "Enter" | e.key === "Escape") {
+        if (e.key === "Escape") {
             backToGameboard();
         }
     };
@@ -51,6 +52,9 @@ export default function Scoreboard({ players, backToGameboard, theme, setHasAnim
             <PlayerScore
                 players={players}
             />
+            <div>
+                {allCellsPlayed && <Confetti  /> }
+            </div>
             <div className="btn-scoreboard-container btn-top">
                 <button className="btn btn-arrow btn-scoreboard" onClick={backToGameboard}>
                     <FaArrowLeftLong />

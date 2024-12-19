@@ -9,7 +9,7 @@ export default function ShowAnswer({ question, backToGameboard, players, updateP
 
     // Shortcut
     const handleKeyPress = (e) => {
-        if (e.key === "Enter") {
+        if (e.key === " ") {
             backToGameboard();
         }
     };

@@ -2,7 +2,7 @@ import "../App.css";
 import '../styles/gameboard.css';
 import { useState, useEffect, useRef } from "react";
 
-export default function Gameboard({ selectedCells, setSelectedCells, handleQuestionSelection, goToScoreboard, theme, hasAnimated, setHasAnimated }) {
+export default function Gameboard({ selectedCells, setSelectedCells, handleQuestionSelection, goToScoreboard, theme, hasAnimated, setHasAnimated, setAllCellsPlayed }) {
     const [data, setData] = useState([]);
 
     // Load data based on theme
@@ -23,6 +23,8 @@ export default function Gameboard({ selectedCells, setSelectedCells, handleQuest
         //     setHasAnimated(true);
         // }, 3000);
         // return () => clearTimeout(timer);
+
+        if(selectedCells.length === 25) setAllCellsPlayed(true);
     }, []);
 
     // Set witch question was clicked

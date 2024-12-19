@@ -8,7 +8,7 @@ export default function ShowQuestion({ question, goToAnswer, players, updatePlay
 
     // Shortcut
     const handleKeyPress = (e) => {
-        if (e.key === "Enter") {
+        if (e.key === " ") {
             goToAnswer();
         }
     };

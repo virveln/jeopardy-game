@@ -25,6 +25,17 @@ export default function PlayerScore({ players }) {
         rankedPlayers[player.name] = rankCount <= 3 ? rankCount : null;
     });
 
+   // Create a mapping of score to delay from last to first place
+   const invertSortedPlayers = [...players].sort((a, b) => a.score - b.score);
+   const scoreToDelay = {};
+   let delay = 0;
+   invertSortedPlayers.forEach((player) => {
+       if (!(player.score in scoreToDelay)) {
+           scoreToDelay[player.score] = delay;
+           delay += 0.5; // Increment delay for the next group
+       }
+   });
+
     return (
         <div className="player-score-container">
             {players.map((player) => {
@@ -35,20 +46,23 @@ export default function PlayerScore({ players }) {
                 else if (rank === 2) rankClass = "second-place";
                 else if (rank === 3) rankClass = "third-place";
                 else if (rank >= 4) rankClass = "";
-                // Calculate animation delay 
-                const animationDelay = rank
-                ? `${rank === 1 ? 0.1 : rank * 0.5}s` // Första plats får 0.25s, resten 0.75s intervall
-                : `${(sortedPlayers.indexOf(player) + 1) * 0.5}s`; // Spelare utan rank får 0.75s intervall efter rankade
-            // const animationDelay = `${(sortedPlayers.indexOf(player)) * 0.75}s`;
 
-            
+                // Calculate animation delay 
+                // const animationDelay = rank
+                // ? `${rank === 1 ? 0.1 : rank * 0.5}s` // Första plats får 0.25s, resten 0.75s intervall
+                // : `${(sortedPlayers.indexOf(player) + 1) * 0.5}s`; // Spelare utan rank får 0.75s intervall efter rankade
+                // const animationDelay = `${(sortedPlayers.indexOf(player)) * 0.75}s`;
+
+                // Determine the animation delay based on the player's score
+                const animationDelay = `${scoreToDelay[player.score]}s`;
+
                 return (
                     <div
                         className={`player-score-content border-shine ${rankClass}`}
                         key={player.name}
                         style={{ animationDelay: animationDelay, }}
-                    >                        
-                    <p className="score-value">{player.score}p</p>
+                    >
+                        <p className="score-value">{player.score}p</p>
                         <hr className="line" />
                         <h3 className="score-name">{player.name}</h3>
                         <HiMiniTrophy className={`trophy ${rankClass}`} />

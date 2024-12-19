@@ -20,7 +20,7 @@ export default function GameSettings({ startGame, setPlayers, setTheme, themes, 
     // Shortcuts
     const handleKeyPress = (e) => {
         // Click on Start Game button when using ctrl/command + enter
-        if (e.key === "Enter" && e.ctrlKey || e.key === "Enter" && e.metaKey) {
+        if (e.key === " " && e.ctrlKey || e.key === " " && e.metaKey) {
             if (startGameBtnRef.current) {
                 startGameBtnRef.current.click(); 
             }

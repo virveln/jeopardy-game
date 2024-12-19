@@ -7,7 +7,7 @@ import StarTrail from "./StarTrail";
 export default function StartPage({ goToGameSettings, goToInstructions, goToAttributions }) {
     // Shortcuts
     const handleKeyPress = (e) => {
-        if (e.key === "Enter") {
+        if (e.key === " ") {
             goToGameSettings();
         }
         else if (e.key === "a" | e.key === "A") {

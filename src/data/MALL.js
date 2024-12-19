@@ -8,12 +8,21 @@ const importAllImages = (r) => {
   // Ladda alla bilder från img-mappen
   const images = importAllImages(require.context('../images/nyår2025', true, /\.(avif|jpeg|png|jpg|svg|WEBP|webp)$/));
   
+//EXEMPEL
+//   {
+//     id: 1,
+//     level: 100,
+//     question: "Detta är Sveriges huvudstad.",
+//     answer: "Vad är Stockholm",
+//     image: images["stockholm.jpg"], (Valfritt)
+//     imageSource: "Bild från Kulturcenter.se" (Valfritt)
+// }
 
 export default [
  
     {
-        label: "Tema Edition",
-        category: "Kategori",
+        label: "Tema Namn",
+        category: "Kategori 1",
         questions: [
             {
                 id: 1,
@@ -58,7 +67,7 @@ export default [
         ],
     },
     {
-        category: "Kategori",
+        category: "Kategori 2",
         questions: [
             {
                 id: 6,
@@ -103,7 +112,7 @@ export default [
         ],
     },
     {
-        category: "Kategori",
+        category: "Kategori 3",
         questions: [
             {
                 id: 11,
@@ -148,7 +157,7 @@ export default [
         ],
     },
     {
-        category: "Kategori",
+        category: "Kategori 4",
         questions: [
             {
                 id: 16,
@@ -193,7 +202,7 @@ export default [
         ],
     },
     {
-        category: "Kategori",
+        category: "Kategori 5",
         questions: [
             {
                 id: 21,
