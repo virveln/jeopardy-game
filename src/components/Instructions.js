@@ -3,6 +3,9 @@ import '../styles/instructions.css';
 import React, { useEffect } from "react";
 import { RxOpenInNewWindow } from "react-icons/rx";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import exBoard from '../images/exBoard.png';
+import exQ from '../images/exQ.png';
+import exA from '../images/exA.png';
 
 export default function Instructions({ openAllAnswers, backToStart }) {
 
@@ -24,7 +27,7 @@ export default function Instructions({ openAllAnswers, backToStart }) {
         <div className="instruction-page background-game">
             <div className="instruction-content">
                 <h2 className="title-position">Instructions</h2>
-                <div className="border-shine instruction-background">
+                <section className="border-shine instruction-background">
                     <h3>Hur man spelar</h3>
                     <p>Spelet är likt konceptet Jeopardy! och går ut på att spelledaren säger svaren och spelarna ställer frågorna. Detta är en webbapplikation som inte är anpassad för att spela på en mobil. <a className="all-answers-link" onClick={openAllAnswers}>Alla svar<RxOpenInNewWindow /></a></p>
                     <table className="instruction-table">
@@ -65,13 +68,8 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div className="new-content border-shine instruction-background">
-                    <h3>Exempel</h3>
-                    <p><b>Spelledarens 'svar': </b>Detta är Sveriges huvudstad.</p>
-                    <p><b>Spelarens 'fråga': </b>Vad är Stockholm?</p>
-                </div>
-                <div className="new-content border-shine instruction-background">
+                </section>
+                <section className="new-content border-shine instruction-background">
                     <h3>Genvägar</h3>
                     <table className="control-table">
                         <tbody>
@@ -88,7 +86,7 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                                 <td>Spela spel / Går vidare till svar/spelplan</td>
                             </tr>
                             <tr>
-                                <td className="left"><kbd>Ctrl</kbd> + <kbd><FaArrowLeftLong/></kbd> / <kbd><FaArrowRightLong/></kbd></td>
+                                <td className="left"><kbd>Ctrl</kbd> + <kbd><FaArrowLeftLong /></kbd> / <kbd><FaArrowRightLong /></kbd></td>
                                 <td>Växlar mellan teman i spelinställningar</td>
                             </tr>
                             <tr>
@@ -109,7 +107,27 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </section>
+                {/* <section className="new-content border-shine instruction-background">
+                    <h3>Exempel</h3>
+                    <p><b>Spelledarens 'svar': </b>Detta är Sveriges huvudstad.</p>
+                    <p><b>Spelarens 'fråga': </b>Vad är Stockholm?</p>
+                </section> */}
+                <section className="new-content border-shine instruction-background instruction-ex">
+                    <h3>Exempel hur en frågeomgång kan se ut</h3>
+                    <div className="ex-item">
+                        <img className="img-ex" src={exBoard} alt="" />
+                        <p>Spelledaren klickar på vald kategori och nivå. I detta fall Geografi - 100.</p>
+                    </div>
+                    <div className="ex-item">
+                        <img className="img-ex" src={exQ} alt="" />
+                        <p>Spelledaren läser upp 'svaret' och efter allt är uppläst får spelarna 'buzza' om att svara med tillhörande 'fråga'. Svarar spelare fel tilldelas minuspoäng motsvarande frågans värde här.</p>
+                    </div>
+                    <div className="ex-item">
+                        <img className="img-ex" src={exA} alt="" />
+                        <p>Denna sida ska visas när rätt 'fråga' har sagts, alternativt att ingen spelare kan 'frågan'. Svarar spelare rätt tilldelas pluspoäng motsvarande frågans värde här.</p>
+                    </div>
+                </section>
                 <div className="btn-instructions-container btn-top">
                     <button className="btn btn-arrow btn-instructions" onClick={backToStart}><FaArrowLeftLong /></button>
                 </div>

@@ -70,3 +70,21 @@
     justify-content: center;
 }
 
+.instruction-page .instruction-ex {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.instruction-page .ex-item {
+    /* margin-bottom: 40px; */
+}
+
+.instruction-page .ex-item>p {
+    margin-top: 5px;
+}
+.instruction-page .img-ex {
+    width: 100%;
+    height: auto;
+    border: 2px solid white;
+}
