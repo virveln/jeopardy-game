@@ -28,7 +28,7 @@
 } */
 
 .jeopardy-name {
-    width: 60%;
+    /* width: 60%; */
     margin-bottom: 50px;
     margin-top: 80px;
     filter: drop-shadow(0 -5px 5px var(--primary-shadow-pink));
@@ -36,7 +36,11 @@
     /* Behåll proportionerna */
     animation: growBounce 1.5s ease-out forwards 0.2s;
     transform-origin: center center;
+
+    text-shadow: 0 0 5px var(--text-shadow-pink);
+    /* filter: drop-shadow(0 0 5px rgba(242, 102, 171, 0.2)); */
 }
+
 
 .btn-start-container {
     display: flex;
