@@ -48,8 +48,8 @@ body {
 
 h1,
 h2 {
-  font-family: 'geopardy';
   font-family: 'Knewave';
+  font-family: 'geopardy';
   color: #fff;  
   -webkit-text-stroke: 2px var(--primary-shadow-pink);
   text-shadow: 0 0 10px var(--text-shadow-pink);
