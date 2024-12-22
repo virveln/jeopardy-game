@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/jeopardy-game/static/css/main.3b9d7a49.css",
-    "main.js": "/jeopardy-game/static/js/main.83597a2b.js",
-    "static/js/179.c23f59eb.chunk.js": "/jeopardy-game/static/js/179.c23f59eb.chunk.js",
+    "main.css": "/jeopardy-game/static/css/main.a15c325d.css",
+    "main.js": "/jeopardy-game/static/js/main.c9f5bd25.js",
+    "static/js/179.1b886a4d.chunk.js": "/jeopardy-game/static/js/179.1b886a4d.chunk.js",
     "static/js/814.3ee572ed.chunk.js": "/jeopardy-game/static/js/814.3ee572ed.chunk.js",
     "static/js/66.95ee728d.chunk.js": "/jeopardy-game/static/js/66.95ee728d.chunk.js",
     "static/js/879.a07ae260.chunk.js": "/jeopardy-game/static/js/879.a07ae260.chunk.js",
-    "static/js/808.7b52ed0f.chunk.js": "/jeopardy-game/static/js/808.7b52ed0f.chunk.js",
+    "static/js/808.9a640449.chunk.js": "/jeopardy-game/static/js/808.9a640449.chunk.js",
     "static/js/453.7979411e.chunk.js": "/jeopardy-game/static/js/453.7979411e.chunk.js",
     "static/media/brasilien.png": "/jeopardy-game/static/media/brasilien.9118cdb1002980b47bb0.png",
     "static/media/lulea.jpg": "/jeopardy-game/static/media/lulea.d755cad8ca21cf5fd246.jpg",
@@ -19,6 +19,7 @@
     "static/media/jesus.jpg": "/jeopardy-game/static/media/jesus.0794e788bca862b9ab54.jpg",
     "static/media/harrypotter.jpg": "/jeopardy-game/static/media/harrypotter.4d0b77d58eeff82d53b3.jpg",
     "static/media/sverige.png": "/jeopardy-game/static/media/sverige.0ee2006fac90a78e5d22.png",
+    "static/media/grape.png": "/jeopardy-game/static/media/grape.d959fbef80c33d5a884d.png",
     "static/media/earth.png": "/jeopardy-game/static/media/earth.895a35ce05efebd39740.png",
     "static/media/betlehems-stjärna.svg": "/jeopardy-game/static/media/betlehems-stjärna.c17b11cc12429143f3ce.svg",
     "static/media/exA.png": "/jeopardy-game/static/media/exA.7a522f5aef4acfdecc35.png",
@@ -50,6 +51,7 @@
     "static/media/centerpartiet.jpg": "/jeopardy-game/static/media/centerpartiet.bb6df1df222b026485f2.jpg",
     "static/media/minecraft.jpg": "/jeopardy-game/static/media/minecraft.dee5b5b998963acb66e7.jpg",
     "static/media/relatititetsteorin.png": "/jeopardy-game/static/media/relatititetsteorin.b2f9cf78908018826f84.png",
+    "static/media/wien.avif": "/jeopardy-game/static/media/wien.97d11853b9a8ff62bae5.avif",
     "static/media/ick.jpg": "/jeopardy-game/static/media/ick.a244b1aab929b6db9aae.jpg",
     "static/media/stockholms-blodbad.jpg": "/jeopardy-game/static/media/stockholms-blodbad.6e1e894c7248f41cd762.jpg",
     "static/media/nepobaby.webp": "/jeopardy-game/static/media/nepobaby.57c3f85a4c0ce137b53e.webp",
@@ -123,17 +125,17 @@
     "static/media/skottsekund.webp": "/jeopardy-game/static/media/skottsekund.ef95939218fc2cd5a5b6.webp",
     "static/media/lightbulb.svg": "/jeopardy-game/static/media/lightbulb.3254723043025f3c5c650ad2d560fa08.svg",
     "index.html": "/jeopardy-game/index.html",
-    "main.3b9d7a49.css.map": "/jeopardy-game/static/css/main.3b9d7a49.css.map",
-    "main.83597a2b.js.map": "/jeopardy-game/static/js/main.83597a2b.js.map",
-    "179.c23f59eb.chunk.js.map": "/jeopardy-game/static/js/179.c23f59eb.chunk.js.map",
+    "main.a15c325d.css.map": "/jeopardy-game/static/css/main.a15c325d.css.map",
+    "main.c9f5bd25.js.map": "/jeopardy-game/static/js/main.c9f5bd25.js.map",
+    "179.1b886a4d.chunk.js.map": "/jeopardy-game/static/js/179.1b886a4d.chunk.js.map",
     "814.3ee572ed.chunk.js.map": "/jeopardy-game/static/js/814.3ee572ed.chunk.js.map",
     "66.95ee728d.chunk.js.map": "/jeopardy-game/static/js/66.95ee728d.chunk.js.map",
     "879.a07ae260.chunk.js.map": "/jeopardy-game/static/js/879.a07ae260.chunk.js.map",
-    "808.7b52ed0f.chunk.js.map": "/jeopardy-game/static/js/808.7b52ed0f.chunk.js.map",
+    "808.9a640449.chunk.js.map": "/jeopardy-game/static/js/808.9a640449.chunk.js.map",
     "453.7979411e.chunk.js.map": "/jeopardy-game/static/js/453.7979411e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b9d7a49.css",
-    "static/js/main.83597a2b.js"
+    "static/css/main.a15c325d.css",
+    "static/js/main.c9f5bd25.js"
   ]
 }
