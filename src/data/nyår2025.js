@@ -29,7 +29,7 @@ export default [
                 question: "I denna Svenska stad hölls Eurovision finalen 2024.",
                 answer: "Vad är Malmö?",
                 image: images["eurovision.jpeg"],
-                imageSource: "Image from "
+                imageSource: "Image from ESC Insight"
             },
             {
                 id: 3,
@@ -185,10 +185,10 @@ export default [
             {
                 id: 20,
                 level: 500,
-                question: "",
-                answer: "",
-                image: images[""],
-                imageSource: "Image from "
+                question: "I denna europeiska huvudstad ställdes 3 konserter in av Taylor Swifts <i>The Eras tour</i> p.g.a. terrorhot.",
+                answer: "Vad är Wien?",
+                image: images["wien.avif"],
+                imageSource: "Image from Tui"
             },
         ],
     },
@@ -214,10 +214,10 @@ export default [
             {
                 id: 23,
                 level: 300,
-                question: "",
-                answer: "",
-                image: images[""],
-                imageSource: "Image from "
+                question: "I bl.a. Spanien äts 12 st av dessa vid midantt, en per de tolv klockslagen, för att bringa lycka de kommande 12 månaderna.",
+                answer: "Vad är vindruvor?",
+                image: images["grape.png"],
+                imageSource: "Image from Freepik by catalyststuff"
             },
             {
                 id: 24,

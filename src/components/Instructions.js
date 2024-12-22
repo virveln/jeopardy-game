@@ -46,7 +46,7 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                             </tr>
                             <tr>
                                 <td className="left">Fråga:</td>
-                                <td>När spelet börjar, kan frågor väljas från spelplanen där varje fråga är förknippad med ett specifikt värde (100–500 poäng).</td>
+                                <td>När spelet börjar, kan frågor väljas från spelplanen där varje fråga är förknippad med ett specifikt värde (100–500 poäng) och stegrande svårigehtsgrad.</td>
                             </tr>
                             <tr>
                                 <td className="left">Svara:</td>

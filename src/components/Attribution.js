@@ -25,7 +25,7 @@ export default function Attribution({ backToStart }) {
                 <ul>
                     {/* <li>Startpage background image from Jeopardy!</li> */}
                     <li>Background images <a href="http://www.freepik.com">designed by Freepik</a></li>
-                    <li>Game concept from Jeopardy!, design made by Jessica Hvirfvel</li>
+                    <li>Game concept insired by Jeopardy!, design made by Jessica Hvirfvel</li>
                 </ul>
             </div>
             <button className="btn btn-arrow btn-attribution btn-top" onClick={backToStart}>
