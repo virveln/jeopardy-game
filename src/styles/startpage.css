@@ -30,7 +30,10 @@
 .jeopardy-name {
     /* width: 60%; */
     margin-bottom: 50px;
+    margin-top: auto;
     margin-top: 80px;
+    margin-top: 160px;
+
     filter: drop-shadow(0 -5px 5px var(--primary-shadow-pink));
     /* transform: scale(0); */
     /* Behåll proportionerna */
@@ -93,31 +96,37 @@
     margin-bottom: 0;
 }
 
+.start-extra-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: auto;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .btn-to-attribution {
     color: #fff;
-    position: fixed;
-    bottom: 10px;
-    left: 50px;
     text-decoration: underline;
     cursor: pointer;
+    padding-left: 3%;
 }
 
 .start-page .tips {
     color: #fff;
-    position: fixed;
-    bottom: 7px;
-    right: 50px;
+    padding-right: 3%;
 }
 
 @keyframes growBounce {
     0% {
-        transform: scale(0); 
+        transform: scale(0);
     }
+
     70% {
-        transform: scale(1.1); 
+        transform: scale(1.1);
     }
+
     100% {
-        transform: scale(1); 
+        transform: scale(1);
     }
 }
 
@@ -137,23 +146,20 @@
 
 /*PHONE*/
 @media screen and (max-width: 767px) {
+    .jeopardy-name {
+        margin: 0;
+        margin-top: auto;
+    }
+
     .jeopardy-name>svg {
         transform: scale(0.5);
     }
 
+    .btn-startpage {
+        margin-top: 0;
+    }
+
     .start-extra-container {
-        display: flex;
         flex-direction: column;
-        position: fixed;
-        bottom: 0;
-        margin-bottom: 10px;
     }
-
-    .btn-to-attribution,
-    .start-page .tips {
-        position: unset;
-        margin: 10px;
-    }
-    
-
 }
