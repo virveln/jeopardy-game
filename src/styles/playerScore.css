@@ -30,6 +30,13 @@
     animation: fadeInPlayerScore 1s ease-in-out forwards;
 }
 
+.player-score-content.first-place {
+    border: 3px solid var(--border-blue);
+    /* box-shadow: 0 0 12px var(--border-shadow-blue); */
+    filter: drop-shadow(0 0 15px var(--border-shadow-blue));
+
+}
+
 .player-score-container .score-value {
     font-size: 2em;
     /* font-size: 4.5vh; */

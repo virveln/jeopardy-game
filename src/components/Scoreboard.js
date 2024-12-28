@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import PlayerScore from "./PlayerScore";
 import Confetti from "react-confetti";
+import { useWindowSize } from 'react-use'
+
 
 export default function Scoreboard({ players, backToGameboard, theme, allCellsPlayed, setHasAnimated }) {
     const [data, setData] = useState([]);
+    const { width, height } = useWindowSize()
 
     // Load data based on theme
     useEffect(() => {
@@ -53,7 +56,8 @@ export default function Scoreboard({ players, backToGameboard, theme, allCellsPl
                 players={players}
             />
             <div>
-                {allCellsPlayed && <Confetti  /> }
+                {/* {allCellsPlayed && <Confetti  /> } */}
+                {allCellsPlayed && <Confetti width={width-1} height={height-1} />}
             </div>
             <div className="btn-scoreboard-container btn-top">
                 <button className="btn btn-arrow btn-scoreboard" onClick={backToGameboard}>

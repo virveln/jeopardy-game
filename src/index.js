@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AllAnswers from './components/AllAnswers';
+// import AllAnswers from './components/AllAnswers';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +12,7 @@ root.render(
     <Router>
       <Routes>
         <Route path="/jeopardy-game" element={<App />} />
-        <Route path="/jeopardy-game/all-answers" element={<AllAnswers theme="nyår2024" />} />
+        {/* <Route path="/jeopardy-game/all-answers" element={<AllAnswers theme="nyår2024" />} /> */}
       </Routes>
     </Router>
   </React.StrictMode>

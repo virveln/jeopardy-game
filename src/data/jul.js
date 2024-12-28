@@ -198,7 +198,7 @@ export default [
                 id: 21,
                 level: 100,
                 question: "Julen firas för att markera födelsen av denna religiösa figur.",
-                answer: "Vem är Jesus Kristus?",
+                answer: "Vem är Jesus (Kristus)?",
                 image: images["jesus.jpg"],
                 imageSource: "Image from Freepik by macrovector"
             },

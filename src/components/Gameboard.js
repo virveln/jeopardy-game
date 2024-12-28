@@ -2,7 +2,7 @@ import "../App.css";
 import '../styles/gameboard.css';
 import { useState, useEffect, useRef } from "react";
 
-export default function Gameboard({ selectedCells, setSelectedCells, handleQuestionSelection, goToScoreboard, theme, hasAnimated, setHasAnimated, setAllCellsPlayed }) {
+export default function Gameboard({ selectedCells, setSelectedCells, handleQuestionSelection, goToScoreboard, theme, hasAnimated, setHasAnimated, setAllCellsPlayed, setClickedButtons }) {
     const [data, setData] = useState([]);
 
     // Load data based on theme
@@ -14,7 +14,9 @@ export default function Gameboard({ selectedCells, setSelectedCells, handleQuest
 
     // Control for animation so it doesnt run again
     useEffect(() => {
-        console.log(selectedCells);
+        setClickedButtons([]);
+
+        // console.log(selectedCells);
         if(selectedCells.length !== 0 ){
             setHasAnimated(true);
         }

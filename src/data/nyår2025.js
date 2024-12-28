@@ -18,7 +18,7 @@ export default [
             {
                 id: 1,
                 level: 100,
-                question: "Detta blev år 2024 nya smaksättning i Blossas glögg.",
+                question: "Detta blev årets nya smaksättning i Blossas glögg.",
                 answer: "Vad är whiskey (och algen dulse)?",
                 image: images['blossa.avif'],
                 imageSource: "Image from blossa.com"
@@ -26,7 +26,7 @@ export default [
             {
                 id: 2,
                 level: 200,
-                question: "I denna Svenska stad hölls Eurovision finalen 2024.",
+                question: "I denna svenska stad hölls Eurovision finalen 2024.",
                 answer: "Vad är Malmö?",
                 image: images["eurovision.jpeg"],
                 imageSource: "Image from ESC Insight"
@@ -34,7 +34,7 @@ export default [
             {
                 id: 3,
                 level: 300,
-                question: "Så många var medaljerna som Sverige tog emot i sommar OS 2024.",
+                question: "Så många var medaljerna som Sverige tog emot i sommar OS 2024 i Paris.",
                 answer: "Vad är 11?",
                 image: images["os.jpeg"],
                 imageSource: "Image from X by sportsonmaxse"
@@ -50,15 +50,15 @@ export default [
             {
                 id: 5,
                 level: 500,
-                question: "Denna politiker tvingades avgå från sin riksdagsplats efter olämpligt beteende på en efterfest i november 2024.",
-                answer: "Vem är Elin Söderberg (från Miljöpartiet)?",
+                question: "Detta politiska parti tillhörde kvinnan som tvingades avgå från sin riksdagsplats efter olämpligt beteende på en efterfest i november 2024.",
+                answer: "Vad är Miljöpartiet (Elin Söderberg)?",
                 image: images["mp.avif"],
                 imageSource: "Image from aftonbladet.se"
             },
         ],
     },
     {
-        category: "Ny",
+        category: "Ny...",
         questions: [
             {
                 id: 6,
@@ -108,42 +108,42 @@ export default [
             {
                 id: 11,
                 level: 100,
-                question: "",
-                answer: "",
-                image: images[''],
-                imageSource: "Image from "
+                question: "Att genomföra en aktivitet utan underhållning eller tidsfördriv. Ex att inte göra någonting när man flyger.",
+                answer: "Vad är rawdogga?",
+                image: images['rawdogga.jpg'],
+                imageSource: "Image from Freepik by nensuria"
             },
             {
                 id: 12,
                 level: 200,
-                question: "",
-                answer: "",
-                image: images[""],
-                imageSource: "Image from "
+                question: "Semester som tillbringas på en plats med svalare klimat.",
+                answer: "Vad är coolcation?",
+                image: images["coolcation.jpg"],
+                imageSource: "Image from Freepik by upklyak"
             },
             {
                 id: 13,
                 level: 300,
-                question: "",
-                answer: "",
-                image: images[""],
-                imageSource: "Image from "
+                question: "När något är anständigt eller måttfullt. (Ordet blev viralt i ett sammanhang där även mindful användes.)",
+                answer: "Vad är demure?",
+                image: images["demure.jpg"],
+                imageSource: "Image from barrie360"
             },
             {
                 id: 14,
                 level: 400,
-                question: "",
-                answer: "",
-                image: images[""],
-                imageSource: "Image from "
+                question: "Beskrivning av någon som klär sig rikt enligt gen Z.",
+                answer: "Vad är grisch?",
+                image: images["grisch.jpg"],
+                imageSource: "Image from Freepik by freepic.diller"
             },
             {
                 id: 15,
                 level: 500,
-                question: "",
-                answer: "",
-                image: images[""],
-                imageSource: "Image from "
+                question: "Sommar som präglas av en bekymmerslös livsstil med fokus på njutning och frihet.",
+                answer: "Vad är bratsommar?",
+                image: images["bratsommar.jpg"],
+                imageSource: "Image from Freepik by kjpargeter"
             },
         ],
     },
@@ -214,18 +214,18 @@ export default [
             {
                 id: 23,
                 level: 300,
-                question: "I bl.a. Spanien äts 12 st av dessa vid midantt, en per de tolv klockslagen, för att bringa lycka de kommande 12 månaderna.",
-                answer: "Vad är vindruvor?",
-                image: images["grape.png"],
-                imageSource: "Image from Freepik by catalyststuff"
-            },
-            {
-                id: 24,
-                level: 400,
                 question: "Detta symboliserar att jaga bort onda andar och välkomna lycka vid tolvslaget.",
                 answer: "Vad är fyrverkerier?",
                 image: images["fyrverkeri.jpg"],
                 imageSource: "Image from Dagens industri"
+            },
+            {
+                id: 24,
+                level: 400,
+                question: "I bl.a. Spanien äts 12 st av dessa vid midantt, en per de tolv klockslagen, för att bringa lycka de kommande 12 månaderna.",
+                answer: "Vad är vindruvor?",
+                image: images["grape.png"],
+                imageSource: "Image from Freepik by catalyststuff"
             },
             {
                 id: 25,

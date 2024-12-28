@@ -38,51 +38,58 @@
     padding: 10px;
 }
 
-/*=== THIS STYLE IS FOR AllAnswers.js WHICH IS NOT IN USE RIGHT NOW===*/
-/* .answers-table {
-    margin: auto;
-    margin-top: 20px;
-    width: 100%;
-    border-collapse: collapse;
-    max-width: 900px;
+/*=== THIS STYLE IS FOR AllAnswersMobile.js ===*/
+/*PHONE*/
+@media screen and (max-width: 991px) {
+    .answers-table-container {
+        padding: 10px;
+    }
+
+    .answers-table {
+        margin: auto;
+        margin-top: 20px;
+        width: 100%;
+        border-collapse: collapse;
+        max-width: 900px;
+    }
+
+    .answers-table th,
+    .answers-table td {
+        background-color: var(--background-dark);
+        border: 2px solid rgba(0, 14, 33, 1);
+        padding: 12px 10px;
+        text-align: left;
+    }
+
+    .answers-table td {
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .answers-table th {
+        background-color: var(--background-dark-hover);
+    }
+
+    .answer-category {
+        margin-bottom: 40px;
+    }
+
+    .answer-category h3 {
+        margin-bottom: 10px;
+    }
+
+    .answers-table tbody td:nth-child(1) {
+        width: 60%;
+    }
+
+    .answers-table tbody td:nth-child(2) {
+        /* width: 25%; */
+        width: 40%;
+    }
+
+    .answers-table tbody td:nth-child(3) {
+        /* width: 5%; */
+    }
 }
-
-.answers-table th,
-.answers-table td {
-    background-color: var(--background-dark);
-    border: 2px solid rgba(0, 14, 33, 1);
-    padding: 12px 10px;
-    text-align: left;
-}
-
-.answers-table td {
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
-}
-
-.answers-table th {
-    background-color: var(--background-dark-hover);
-}
-
-.answer-category {
-    margin-bottom: 40px;
-}
-
-.answer-category h3 {
-    margin-bottom: 10px;
-}
-
-.answers-table tbody td:nth-child(1) {
-    width: 70%;
-}
-
-.answers-table tbody td:nth-child(2) {
-    width: 25%;
-}
-
-.answers-table tbody td:nth-child(3) {
-    width: 5%;
-} */
-

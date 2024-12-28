@@ -58,8 +58,8 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                             <tr>
                                 <td className="left">Poäng:</td>
                                 <td>
-                                    Om en spelare svarar fel, får de minuspoäng motsvarande frågans värde och andra spelare får en chans att svara (spelledare tilldelar detta på 'frågesidan').
-                                    Om en spelare svarar rätt, får de pluspoäng motsvarande frågans värde (spelledare tilldelar detta på 'svarssidan').
+                                    Om en spelare svarar fel, får de minuspoäng motsvarande frågans värde och andra spelare får en chans att svara.
+                                    Om en spelare svarar rätt, får de pluspoäng motsvarande frågans värde.
                                 </td>
                             </tr>
                             <tr>
@@ -97,10 +97,10 @@ export default function Instructions({ openAllAnswers, backToStart }) {
                                 <td className="left"><kbd>Tab</kbd></td>
                                 <td>Tabbar igenom val av frågor i spelplan</td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                                 <td className="left"><kbd>1</kbd> - <kbd>9</kbd></td>
                                 <td>För att ge + / - poäng till (max 9) spelare (vänster till höger)</td>
-                            </tr>
+                            </tr> */}
                             <tr>
                                 <td className="left"><kbd>S</kbd></td>
                                 <td>Visar scoreboard</td>

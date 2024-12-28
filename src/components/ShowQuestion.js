@@ -4,7 +4,7 @@ import PlayersBtnQA from "./PlayersBtnQA";
 import { useEffect } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-export default function ShowQuestion({ question, goToAnswer, players, updatePlayerScore }) {
+export default function ShowQuestion({ question, goToAnswer, players, updatePlayerScore, clickedButtons, setClickedButtons }) {
 
     // Shortcut
     const handleKeyPress = (e) => {
@@ -32,6 +32,8 @@ export default function ShowQuestion({ question, goToAnswer, players, updatePlay
                     questionValue={question.value}
                     updatePlayerScore={updatePlayerScore}
                     whichPage={"question"}
+                    clickedButtons={clickedButtons}
+                    setClickedButtons={setClickedButtons}
                 />
                 <button className="btn btn-arrow btn-question" onClick={goToAnswer}><FaArrowRightLong /></button>
             </div>

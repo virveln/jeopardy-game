@@ -1,7 +1,7 @@
 import "../App.css";
 import '../styles/startpage.css';
 import React, { useEffect } from "react";
-import jeopardyName from '../images/jeopardy-name2.png'
+// import jeopardyName from '../images/jeopardy-name2.png'
 import StarTrail from "./StarTrail";
 
 export default function StartPage({ goToGameSettings, goToInstructions, goToAttributions }) {
@@ -54,8 +54,10 @@ export default function StartPage({ goToGameSettings, goToInstructions, goToAttr
                 <button className="btn btn-startpage" onClick={goToGameSettings}>Play Game</button>
                 <button className="btn btn-startpage" onClick={goToInstructions}>Instructions</button>
             </div>
-            <p className="btn-to-attribution" onClick={goToAttributions} >Attribution</p>
-            <p className="tips">Press <kbd>F11</kbd> for full-screen mode</p>
+            <div className="start-extra-container">
+                <p className="btn-to-attribution" onClick={goToAttributions} >Attribution</p>
+                <p className="tips">Press <kbd>F11</kbd> for full-screen mode</p>
+            </div>
         </div>
     );
 }

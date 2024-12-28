@@ -1,6 +1,4 @@
-// **************
-// NOT IN USE RIGHT NOW, USING ALLANSWERSG INSTEAD
-// **************
+// Mobile version
 
 import '../styles/allAnswers.css';
 import React, { useState, useEffect } from 'react';
@@ -36,7 +34,7 @@ export default function AllAnswers({ allThemes }) {
                                     <tr>
                                         <th>Question</th>
                                         <th>Answer</th>
-                                        <th>Value</th>
+                                        {/* <th>Value</th> */}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,7 +42,7 @@ export default function AllAnswers({ allThemes }) {
                                         <tr key={q.id}>
                                             <td dangerouslySetInnerHTML={{ __html: q.question }}></td>
                                             <td dangerouslySetInnerHTML={{ __html: q.answer }}></td>
-                                            <td>{q.level}</td>
+                                            {/* <td>{q.level}</td> */}
                                         </tr>
                                     ))}
                                 </tbody>

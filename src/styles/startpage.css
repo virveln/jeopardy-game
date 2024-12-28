@@ -41,6 +41,26 @@
     /* filter: drop-shadow(0 0 5px rgba(242, 102, 171, 0.2)); */
 }
 
+/* .j-name-first-text {
+    fill: #fff; 
+    font-size: 110px; 
+    font-size: 9vw;
+    font-family: 'Rammetto One'; 
+    stroke: #A31ACB; 
+    stroke-width: 3px; 
+    text-anchor: middle;
+}
+
+.j-name-second-text {
+    fill: #fff; 
+    font-size: 70px; 
+    font-size: 6vw;
+    font-family: 'Rammetto One'; 
+    stroke: #A31ACB; 
+    stroke-width: 3px; 
+    text-anchor: middle;
+} */
+
 /* .jeopardy-name .name-first {
     fill: white;
     font-size: 110px;
@@ -91,13 +111,13 @@
 
 @keyframes growBounce {
     0% {
-        transform: scale(0); /* Börjar osynligt */
+        transform: scale(0); 
     }
     70% {
-        transform: scale(1.1); /* Väx till lite större än originalstorlek */
+        transform: scale(1.1); 
     }
     100% {
-        transform: scale(1); /* Tillbaka till 100% storlek */
+        transform: scale(1); 
     }
 }
 
@@ -109,4 +129,31 @@
     .jeopardy-name .name-second {
         font-size: 50px;
     } */
+
+    .jeopardy-name>svg {
+        transform: scale(0.8);
+    }
+}
+
+/*PHONE*/
+@media screen and (max-width: 767px) {
+    .jeopardy-name>svg {
+        transform: scale(0.5);
+    }
+
+    .start-extra-container {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        bottom: 0;
+        margin-bottom: 10px;
+    }
+
+    .btn-to-attribution,
+    .start-page .tips {
+        position: unset;
+        margin: 10px;
+    }
+    
+
 }

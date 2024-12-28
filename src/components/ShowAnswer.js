@@ -4,7 +4,7 @@ import PlayersBtnQA from "./PlayersBtnQA";
 import { useState, useEffect } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-export default function ShowAnswer({ question, backToGameboard, players, updatePlayerScore }) {
+export default function ShowAnswer({ question, backToGameboard, players, updatePlayerScore, clickedButtons, setClickedButtons }) {
     const [imageClass, setImageClass] = useState("");
 
     // Shortcut
@@ -49,6 +49,8 @@ export default function ShowAnswer({ question, backToGameboard, players, updateP
                     questionValue={question.value}
                     updatePlayerScore={updatePlayerScore}
                     whichPage={"answer"}
+                    clickedButtons={clickedButtons}
+                    setClickedButtons={setClickedButtons}
                 />
                 <button className="btn btn-arrow btn-answer-page" onClick={backToGameboard}>
                     <FaArrowRightLong />

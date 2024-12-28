@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import StartPage from "./components/StartPage";
 import Gameboard from "./components/Gameboard";
@@ -9,6 +9,7 @@ import GameSettings from "./components/GameSettings";
 import Attribution from "./components/Attribution";
 import Instructions from "./components/Instructions";
 import AllAnswers from './components/AllAnswersG';
+import AllAnswersMobile from './components/AllAnswersMobile';
 
 import { ReactComponent as LightbulbThumbnail } from './images/thumbnails/lightbulb.svg';
 import { ReactComponent as TreeThumbnail } from './images/thumbnails/tree.svg';
@@ -23,16 +24,27 @@ function App() {
   const [theme, setTheme] = useState('allmant');
   const [hasAnimated, setHasAnimated] = useState(false);
   const [allCellsPlayed, setAllCellsPlayed] = useState(false);
+  const [clickedButtons, setClickedButtons] = useState({});
 
   const allThemes = [
     { value: 'allmant', label: 'Allmänt', thumbnail: LightbulbThumbnail },
     { value: 'jul', label: 'Jul', thumbnail: TreeThumbnail },
     { value: 'nyår2024', label: 'Nyår 2024', thumbnail: FireworkThumbnail },
-    // { value: 'nyår2025', label: 'Nyår 2025', thumbnail: FireworkThumbnail },
+    { value: 'nyår2025', label: 'Nyår 2025', thumbnail: FireworkThumbnail },
     // { value: 'karlstad', label: 'Karlstahäng', thumbnail: AllmantThumbnail },
   ];
 
-  
+  // Check if mobile to choose which component for showing all answers
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 992);
+    };
+
+    handleResize(); 
+    window.addEventListener("resize", handleResize); 
+    return () => window.removeEventListener("resize", handleResize); 
+  }, []);
 
   const handleQuestionSelection = (category, question) => {
     setSelectedQuestion({
@@ -63,13 +75,25 @@ function App() {
   };
 
   // Update a player's score
+  // const updatePlayerScore = (playerName, points, isCorrect) => {
+  //   setPlayers((prevPlayers) =>
+  //     prevPlayers.map((player) =>
+  //       player.name === playerName
+  //         ? {
+  //           ...player,
+  //           score: player.score + (isCorrect ? points : -points),
+  //         }
+  //         : player
+  //     )
+  //   );
+  // };
   const updatePlayerScore = (playerName, points, isCorrect) => {
     setPlayers((prevPlayers) =>
       prevPlayers.map((player) =>
         player.name === playerName
           ? {
             ...player,
-            score: player.score + (isCorrect ? points : -points),
+            score: player.score + points,
           }
           : player
       )
@@ -79,9 +103,10 @@ function App() {
   return (
     <div>
       {currentPage === "allAnswers" && (
-        <AllAnswers
-          allThemes={allThemes}
-        />
+        // <AllAnswers
+        //   allThemes={allThemes}
+        // />
+        isMobile ? <AllAnswersMobile allThemes={allThemes} /> : <AllAnswers allThemes={allThemes} />
       )}
       {currentPage === "start" && (
         <StartPage
@@ -120,6 +145,8 @@ function App() {
           hasAnimated={hasAnimated}
           setHasAnimated={setHasAnimated}
           setAllCellsPlayed={setAllCellsPlayed}
+          setClickedButtons={setClickedButtons}
+
         />
       )}
       {currentPage === "showQuestion" && (
@@ -128,6 +155,8 @@ function App() {
           goToAnswer={goToAnswer}
           players={players}
           updatePlayerScore={updatePlayerScore}
+          clickedButtons={clickedButtons}
+          setClickedButtons={setClickedButtons}
         />
       )}
       {currentPage === "showAnswer" && (
@@ -136,6 +165,8 @@ function App() {
           backToGameboard={backToGameboard}
           players={players}
           updatePlayerScore={updatePlayerScore}
+          clickedButtons={clickedButtons}
+          setClickedButtons={setClickedButtons}
 
         />
       )}
