@@ -21,6 +21,7 @@ export default function StarTrail() {
       y: e.clientY + (Math.random() - 0.5) * offset,
       size: size,
     };
+    console.log(Date.now());
 
     setStars((prev) => [...prev, newStar]);
 
