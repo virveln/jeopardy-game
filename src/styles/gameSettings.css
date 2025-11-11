@@ -145,7 +145,7 @@
 
 .theme-button:hover {
     background-color: var(--background-dark-hover);
-    transform: scale(1.05);
+    transform: scale(1.05) !important;
 }
 
 .theme-button:hover .svg-img *,

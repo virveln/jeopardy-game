@@ -1,12 +1,27 @@
 import "../App.css";
 import '../styles/playersBtnQA.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaCheck } from 'react-icons/fa6';
+import correctSound from '../audio/correct.mp3';
+import incorrectSound from '../audio/incorrect.mp3';
+
 
 export default function PlayersBtnAnswer({ players, questionValue, updatePlayerScore, whichPage, clickedButtons, setClickedButtons }) {
     const [animations, setAnimations] = useState([]);
+    const correctAudioRef = useRef(null);
+    const incorrectAudioRef = useRef(null);
     // const [animationClass, setAnimationClass] = useState("");
     // const [clickedButtons, setClickedButtons] = useState({});
+
+    // Load audio once
+    useEffect(() => {
+        correctAudioRef.current = new Audio(correctSound);
+        incorrectAudioRef.current = new Audio(incorrectSound);
+
+        // Optional: ensure they're preloaded
+        correctAudioRef.current.load();
+        incorrectAudioRef.current.load();
+    }, []);
 
     // When player click on button to give or take points from player
     const handleButtonClick = (playerName, value, isCorrect, buttonContent, e) => {
@@ -23,11 +38,30 @@ export default function PlayersBtnAnswer({ players, questionValue, updatePlayerS
             const wasIncorrect = prevState.incorrect;
 
             // Uppdatera poäng baserat på toggling
-            if (isCorrect) {
+            /*if (isCorrect) {
                 updatePlayerScore(playerName, wasCorrect ? -value : value, true);
+                const audio = new Audio(correctSound);
+                audio.play();
             } else {
                 updatePlayerScore(playerName, wasIncorrect ? value : -value, false);
+                const audio = new Audio(incorrectSound);
+                audio.play();
+            }*/
+
+            if (isCorrect) {
+                if (!wasCorrect) {
+                    correctAudioRef.current.currentTime = 0; // restart from start
+                    correctAudioRef.current.play();
+                }
+                updatePlayerScore(playerName, wasCorrect ? -value : value, true);
+            } else {
+                if (!wasIncorrect) {
+                    incorrectAudioRef.current.currentTime = 0;
+                    incorrectAudioRef.current.play();
+                }
+                updatePlayerScore(playerName, wasIncorrect ? value : -value, false);
             }
+
 
             return {
                 ...prev,
@@ -59,78 +93,18 @@ export default function PlayersBtnAnswer({ players, questionValue, updatePlayerS
         }, 1000);
     };
 
-    // Shortcut controls so each player has a number
-    // const handleKeyPress = (e) => {
-    //     const playerIndex = parseInt(e.key, 10) - 1; // 1-indexerade tangenter
-    //     if (playerIndex >= 0 && playerIndex < players.length) {
-    //         const playerName = players[playerIndex].name;
-    //         const button = document.getElementById(`btn-${whichPage === "question" ? 'incorrect' : 'correct'}-${playerName}`);
-    //         if (button) { button.click(); }
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     window.addEventListener("keydown", handleKeyPress);
-    //     return () => {
-    //         window.removeEventListener("keydown", handleKeyPress);
-    //     };
-    // }, [players]);
-
-    // Different amount of columns depending on amount of players
-    // const getColumns = (count) => {
-    //     if (count <= 2) return "1fr";
-    //     if (count <= 4) return "1fr 1fr";
-    //     return "1fr 1fr 1fr";
-    // };
-
-    // const gridStyle = {
-    //     gridTemplateColumns: getColumns(players.length),
-    // };
-
     return (
         <div className="player-answer">
             {/* <div className="player-answer" style={gridStyle}> */}
             {players.map((player, index) => (
                 <div className="player" key={player.name}>
                     <div className="btn-container">
-                        {/* <button
-                            id={`${whichPage === "question" ? 'btn-incorrect' : 'btn-correct'}-${player.name}`}
-                            className={`btn-answer 
-                                ${whichPage === "question" ? 'btn-incorrect' : 'btn-correct'} 
-                                ${whichPage === "question"
-                                    ? (clickedButtons[player.name] === "incorrect" ? "disabled-red" : "")
-                                    : (clickedButtons[player.name] === "correct" ? "disabled-green" : "")
-                                }`}
-                            onClick={(e) => {
-                                if (whichPage === "question") { handleButtonClick(player.name, questionValue, false, "x", e); }
-                                else { handleButtonClick(player.name, questionValue, true, <FaCheck />, e); }
-                            }}
-                        >
-                            {whichPage === "question" ? 'x' : <FaCheck />}
-                        </button> */}
-
-
-                        {/* <button
-                            id={`btn-incorrect-${player.name}`}
-                            className={`btn-answer btn-incorrect ${ (clickedButtons[player.name] === "incorrect" ? "disabled-red" : "")}`}
-                            onClick={(e) => { handleButtonClick(player.name, questionValue, false, "x", e) }}
-                        >
-                            x
-                        </button>
-                        <button
-                            id={`btn-correct-${player.name}`}
-                            className={`btn-answer btn-correct ${ (clickedButtons[player.name] === "correct" ? "disabled-green" : "")}`}
-                            onClick={(e) => { handleButtonClick(player.name, questionValue, true, <FaCheck />, e) }}
-                        >
-                            <FaCheck />
-                        </button> */}
-
                         <button
                             id={`btn-correct-${player.name}`}
                             className={`btn-answer btn-correct ${clickedButtons[player.name]?.correct ? "disabled-green" : ""
                                 }`}
                             onClick={(e) => handleButtonClick(player.name, questionValue, true, <FaCheck />, e)}
-                            // disabled={clickedButtons[player.name]?.correct || clickedButtons[player.name]?.incorrect}
+                        // disabled={clickedButtons[player.name]?.correct || clickedButtons[player.name]?.incorrect}
                         >
                             <FaCheck className="check-icon" />
                         </button>
@@ -140,13 +114,10 @@ export default function PlayersBtnAnswer({ players, questionValue, updatePlayerS
                             className={`btn-answer btn-incorrect ${clickedButtons[player.name]?.incorrect ? "disabled-red" : ""
                                 }`}
                             onClick={(e) => handleButtonClick(player.name, questionValue, false, "x", e)}
-                            // disabled={clickedButtons[player.name]?.correct || clickedButtons[player.name]?.incorrect}
+                        // disabled={clickedButtons[player.name]?.correct || clickedButtons[player.name]?.incorrect}
                         >
                             <span className="">X</span>
                         </button>
-
-
-
 
 
                     </div>

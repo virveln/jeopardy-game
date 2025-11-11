@@ -2,8 +2,15 @@ import "../App.css";
 import '../styles/gameboard.css';
 import { useState, useEffect, useRef } from "react";
 
-export default function Gameboard({ selectedCells, setSelectedCells, handleQuestionSelection, goToScoreboard, theme, hasAnimated, setHasAnimated, setAllCellsPlayed, setClickedButtons }) {
+import swooshSound from '../audio/category-intro1.mp3';
+
+export default function Gameboard({ selectedCells, setSelectedCells, handleQuestionSelection, goToScoreboard, theme, hasAnimated, setHasAnimated, setAllCellsPlayed, setClickedButtons, categoryAudioUnlocked }) {
     const [data, setData] = useState([]);
+    const categoryAudioRef = useRef(null);
+    const AUDIO_INITIAL_DELAY = 400; // in milliseconds, adjust as needed
+    const AUDIO_CATEGORY_DELAY = 400; // 400ms between each category
+    const ANIMATION_INITIAL_DELAY = 0.4; // in seconds (e.g., 0.8s)
+    const ANIMATION_CATEGORY_DELAY = 0.4; // stagger between categories
 
     // Load data based on theme
     useEffect(() => {
@@ -16,18 +23,16 @@ export default function Gameboard({ selectedCells, setSelectedCells, handleQuest
     useEffect(() => {
         setClickedButtons([]);
 
-        // console.log(selectedCells);
-        if(selectedCells.length !== 0 ){
-            setHasAnimated(true);
+        console.log("selectedcells: " + selectedCells.length);
+        console.log("hasanimated: " + hasAnimated);
+        if (selectedCells.length !== 0) {
+            //setHasAnimated(true);
         }
 
-        // const timer = setTimeout(() => {
-        //     setHasAnimated(true);
-        // }, 3000);
-        // return () => clearTimeout(timer);
-
-        if(selectedCells.length === 25) setAllCellsPlayed(true);
+        if (selectedCells.length === 25) setAllCellsPlayed(true);
     }, []);
+
+
 
     // Set witch question was clicked
     const handleQuestionClick = (categoryIndex, level) => {
@@ -41,6 +46,38 @@ export default function Gameboard({ selectedCells, setSelectedCells, handleQuest
         }
         handleQuestionSelection(category, question);
     };
+
+    useEffect(() => {
+        // Preload sound for instant playback
+        categoryAudioRef.current = new Audio(swooshSound);
+        categoryAudioRef.current.load();
+    }, []);
+
+    // Sound effect
+    useEffect(() => {
+        if (data.length === 0 || hasAnimated || !categoryAudioUnlocked) return;
+        console.log("spelar ljud" + hasAnimated);
+
+
+
+        data.forEach((_, index) => {
+            setTimeout(() => {
+                if (categoryAudioRef.current) {
+                    const clone = categoryAudioRef.current.cloneNode();
+                    clone.currentTime = 0;
+                    clone.play().catch(err => console.warn("Audio play failed:", err));
+                }
+            }, AUDIO_INITIAL_DELAY + index * AUDIO_CATEGORY_DELAY);
+        });
+
+        const totalDelay = AUDIO_INITIAL_DELAY + (data.length - 1) * AUDIO_CATEGORY_DELAY + 100; // extra 100ms buffer
+        const timer = setTimeout(() => {
+            setHasAnimated(true);
+        }, totalDelay);
+
+        return () => clearTimeout(timer);
+
+    }, [data, hasAnimated, categoryAudioUnlocked]);
 
     // Shortcuts
     const handleKeyPress = (e) => {
@@ -86,10 +123,8 @@ export default function Gameboard({ selectedCells, setSelectedCells, handleQuest
                         <tr>
                             {/* Category names as heading in table */}
                             {data.map((category, categoryIndex) => (
-                                <th
-                                    key={categoryIndex}
-                                    className={`category ${hasAnimated ? '' : 'animate'}`}>
-                                    <span style={{ animationDelay: `${categoryIndex * 0.4}s` }}>
+                                <th key={categoryIndex} className={`category ${hasAnimated ? '' : 'animate'}`}>
+                                    <span style={{ animationDelay: `${ANIMATION_INITIAL_DELAY + categoryIndex * ANIMATION_CATEGORY_DELAY}s` }}>
                                         {category.category}
                                     </span>
                                 </th>
@@ -147,7 +182,7 @@ export default function Gameboard({ selectedCells, setSelectedCells, handleQuest
                                             role="button"
                                             aria-disabled={isSelected}
                                         >
-                                            <span style={{ animationDelay: `${colIndex * 0.4}s` }}>
+                                            <span style={{ animationDelay: `${ANIMATION_INITIAL_DELAY + colIndex * ANIMATION_CATEGORY_DELAY}s` }}>
                                                 {question.level}
                                             </span>
                                         </td>

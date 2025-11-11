@@ -41,6 +41,10 @@
 /*=== THIS STYLE IS FOR AllAnswersMobile.js ===*/
 /*PHONE*/
 @media screen and (max-width: 991px) {
+    .all-answers-page h1 {
+        padding-top: 20px;
+    }
+    
     .answers-table-container {
         padding: 10px;
     }

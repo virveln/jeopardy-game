@@ -5,6 +5,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import PlayerScore from "./PlayerScore";
 import Confetti from "react-confetti";
 import { useWindowSize } from 'react-use'
+import successSound from '../audio/success.mp3';
 
 
 export default function Scoreboard({ players, backToGameboard, theme, allCellsPlayed, setHasAnimated }) {
@@ -35,29 +36,23 @@ export default function Scoreboard({ players, backToGameboard, theme, allCellsPl
         };
     }, []);
 
-    // const [visiblePlayers, setVisiblePlayers] = useState([]);
-
-    // useEffect(() => {
-    //     setVisiblePlayers([]); 
-    //     let timers = [];
-    //     players.forEach((player, index) => {
-    //         const timer = setTimeout(() => {
-    //             setVisiblePlayers((prev) => [...prev, player]);
-    //         }, index * 500); // 500ms between each player
-    //         timers.push(timer);
-    //     });
-    //     return () => timers.forEach(clearTimeout); // Clear all timers via unmount
-    // }, [players]);
+    // Play audio when all cells are played
+    useEffect(() => {
+        if (allCellsPlayed) {
+            const audio = new Audio(successSound);
+            audio.play().catch((err) => console.error("Audio play failed:", err));
+        }
+    }, [allCellsPlayed]);
 
     return (
         <div className="background-scoreboard scoreboard">
-            <h2 id="sub-title" className="scoreboard-subtitle title-position">{data[0]?.label}</h2>
+            <h2 id="sub-title" className="scoreboard-subtitle title-position">Scoreboard - {data[0]?.label}</h2>
             <PlayerScore
                 players={players}
             />
             <div>
                 {/* {allCellsPlayed && <Confetti  /> } */}
-                {allCellsPlayed && <Confetti width={width-1} height={height-1} />}
+                {allCellsPlayed && <Confetti width={width - 1} height={height - 1} />}
             </div>
             <div className="btn-scoreboard-container btn-top">
                 <button className="btn btn-arrow btn-scoreboard" onClick={backToGameboard}>

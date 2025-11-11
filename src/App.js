@@ -14,6 +14,8 @@ import AllAnswersMobile from './components/AllAnswersMobile';
 import { ReactComponent as LightbulbThumbnail } from './images/thumbnails/lightbulb.svg';
 import { ReactComponent as TreeThumbnail } from './images/thumbnails/tree.svg';
 import { ReactComponent as FireworkThumbnail } from './images/thumbnails/firework1.svg';
+import advaniaThumbnail from './images/thumbnails/advania.png';
+
 // import { ReactComponent as Nyår2025Thumbnail } from './images/thumbnails/firework1.svg';
 
 function App() {
@@ -25,12 +27,16 @@ function App() {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [allCellsPlayed, setAllCellsPlayed] = useState(false);
   const [clickedButtons, setClickedButtons] = useState({});
+    const [categoryAudioUnlocked, setCategoryAudioUnlocked] = useState(false);
+
 
   const allThemes = [
     { value: 'allmant', label: 'Allmänt', thumbnail: LightbulbThumbnail },
     { value: 'jul', label: 'Jul', thumbnail: TreeThumbnail },
     { value: 'nyår2024', label: 'Nyår 2024', thumbnail: FireworkThumbnail },
     { value: 'nyår2025', label: 'Nyår 2025', thumbnail: FireworkThumbnail },
+    { value: 'advania', label: 'Advania', thumbnail: advaniaThumbnail },
+
     // { value: 'karlstad', label: 'Karlstahäng', thumbnail: AllmantThumbnail },
   ];
 
@@ -61,11 +67,12 @@ function App() {
   const goToGameSettings = () => setCurrentPage("gameSettings");
   const goToAttributions = () => setCurrentPage("attribution");
   const goToInstructions = () => setCurrentPage("instructions");
-  const startGame = () => setCurrentPage("gameboard");
+  const startGame = () => {setCurrentPage("gameboard"); setCategoryAudioUnlocked(true);}
   const goToAnswer = () => setCurrentPage("showAnswer");
   const goToScoreboard = () => setCurrentPage("scoreboard");
   const backToGameboard = () => setCurrentPage("gameboard");
   const backToStart = () => setCurrentPage("start");
+
 
   //Because of publication on Github pages this was the solution to open in another tab
   const openAllAnswers = () => {
@@ -146,6 +153,7 @@ function App() {
           setHasAnimated={setHasAnimated}
           setAllCellsPlayed={setAllCellsPlayed}
           setClickedButtons={setClickedButtons}
+          categoryAudioUnlocked={categoryAudioUnlocked}
 
         />
       )}

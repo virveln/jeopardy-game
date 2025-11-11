@@ -115,7 +115,7 @@ kbd {
 }
 
 .btn-top {
-  position: absolute;
+  position: fixed;
   top: 20px;
   /* left: 10vw; */
   left: 50px;

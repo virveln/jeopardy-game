@@ -167,5 +167,9 @@
         padding: 0;
         margin: 10px auto;
     }
+
+    .start-page .tips {
+        display: none;
+    }
     
 }

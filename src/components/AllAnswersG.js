@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 export default function AllanswersG({ allThemes }) {
     const [theme, setTheme] = useState('allmant');
     const [data, setData] = useState([]);
+    const [clickedCells, setClickedCells] = useState(new Set());
+
 
     // Load data based on theme
     useEffect(() => {
@@ -12,6 +14,20 @@ export default function AllanswersG({ allThemes }) {
             .then((module) => setData(module.default))
             .catch((err) => console.error("Failed to load theme data:", err));
     }, [theme]);
+
+    const handleCellClick = (categoryIndex, rowIndex) => {
+        const key = `${categoryIndex}-${rowIndex}`;
+        setClickedCells(prev => {
+            const newSet = new Set(prev);
+            if (newSet.has(key)) {
+                newSet.delete(key); // un-toggle if clicked again
+            } else {
+                newSet.add(key); // mark as clicked
+            }
+            return newSet;
+        });
+    };
+
 
 
     return (
@@ -38,16 +54,23 @@ export default function AllanswersG({ allThemes }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* For each row (level), create a tr with 5 td */}
                         {Array.from({ length: 5 }).map((_, rowIndex) => (
                             <tr key={rowIndex}>
-                                {/* For each category, create a cell (td) */}
                                 {data.map((category, colIndex) => {
-                                    const question = category.questions[rowIndex]; // Get right question for the level
-                            
+                                    const question = category.questions[rowIndex];
+                                    const key = `${colIndex}-${rowIndex}`;
+                                    const isClicked = clickedCells.has(key);
+
                                     return (
                                         <td
+                                            key={key}
                                             className="answer-cell"
+                                            onClick={() => handleCellClick(colIndex, rowIndex)}
+                                            style={{
+                                                opacity: isClicked ? 0.1 : 1,
+                                                cursor: "pointer",
+                                                transition: "opacity 0.3s ease"
+                                            }}
                                             dangerouslySetInnerHTML={{ __html: question.answer }}
                                             title={`${question.level}: ${question.question}`}
                                         >
