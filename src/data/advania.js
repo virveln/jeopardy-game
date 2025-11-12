@@ -22,7 +22,7 @@ const advaniaImages = importAllImages(require.context('../images/advania', true,
 export default [
 
     {
-        label: "Advania AW",
+        label: "Operations AW",
         category: "Svensk Historia",
         questions: [
             {
@@ -203,46 +203,46 @@ export default [
         ]
     },
     {
-        category: "Advania",
+        category: "iBiz",
         questions: [
             {
                 id: 21,
                 level: 100,
-                question: "Detta är koden till i",
-                answer: "Vad är ?",
-                image: advaniaImages[""],
+                question: "Detta var antalet kvm förra kontoret hade — ett tal som även kallas 'odjurets tal'.",
+                answer: "Vad är 666?",
+                image: advaniaImages["666.jpg"],
                 imageSource: ""
             },
             {
                 id: 22,
                 level: 200,
-                question: "Detta är de 6 länderna som Advania finns i.",
-                answer: "Vad är Sverige, Norge, Danmark, Finland, Island och Storbritannien?",
+                question: "Detta är koden in till trapphuset.",
+                answer: "Vad är 9215?",
                 image: advaniaImages[""],
                 imageSource: ""
             },
             {
                 id: 23,
                 level: 300,
-                question: "Detta år startade Advania Sverige sin resa.",
-                answer: "Vad är 1972?",
-                image: advaniaImages[""],
+                question: "Detta företag utav Handelsbanken, Nordea och Forex har aldrig varit kund till iBiz.",
+                answer: "Vad är Nordea?",
+                image: advaniaImages["nordea.png"],
                 imageSource: ""
             },
             {
                 id: 24,
                 level: 400,
-                question: "Detta är ett av de senaste uppköpen av företag.",
-                answer: "Vad är Smartvokat / Gompute / The AI framework?",
+                question: "Detta år startade iBiz sin resa.",
+                answer: "Vad är 2008?",
                 image: advaniaImages[""],
                 imageSource: ""
             },
             {
                 id: 25,
                 level: 500,
-                question: "",
-                answer: "Vad är ?",
-                image: advaniaImages[""],
+                question: "Detta är iBiz fullständiga namn.",
+                answer: "Vad är Intelligent Business Solutions i Norden (AB)?",
+                image: advaniaImages["ibiz.png"],
                 imageSource: ""
             }
         ],
