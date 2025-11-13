@@ -224,9 +224,9 @@ export default [
             {
                 id: 23,
                 level: 300,
-                question: "Detta företag utav Handelsbanken, Nordea och Forex har aldrig varit kund till iBiz.",
-                answer: "Vad är Nordea?",
-                image: advaniaImages["nordea.png"],
+                question: "Detta är iBiz fullständiga namn.",
+                answer: "Vad är Intelligent Business Solutions i Norden (AB)?",
+                image: advaniaImages["ibiz.png"],
                 imageSource: ""
             },
             {
@@ -240,9 +240,9 @@ export default [
             {
                 id: 25,
                 level: 500,
-                question: "Detta är iBiz fullständiga namn.",
-                answer: "Vad är Intelligent Business Solutions i Norden (AB)?",
-                image: advaniaImages["ibiz.png"],
+                question: "Detta företag utav Handelsbanken, Nordea och Forex har aldrig varit kund till iBiz.",
+                answer: "Vad är Nordea?",
+                image: advaniaImages["nordea.png"],
                 imageSource: ""
             }
         ],
