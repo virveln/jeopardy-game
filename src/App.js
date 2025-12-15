@@ -35,6 +35,7 @@ function App() {
     { value: 'jul', label: 'Jul', thumbnail: TreeThumbnail },
     { value: 'nyår2024', label: 'Nyår 2024', thumbnail: FireworkThumbnail },
     { value: 'nyår2025', label: 'Nyår 2025', thumbnail: FireworkThumbnail },
+    //{ value: 'nyår2026', label: 'Nyår 2026', thumbnail: FireworkThumbnail },
     { value: 'advania', label: 'Advania', thumbnail: advaniaThumbnail },
 
     // { value: 'karlstad', label: 'Karlstahäng', thumbnail: AllmantThumbnail },
