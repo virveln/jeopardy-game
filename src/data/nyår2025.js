@@ -103,7 +103,7 @@ export default [
         ],
     },
     {
-        category: "Nya ord",
+        category: "Så sa vi i år",
         questions: [
             {
                 id: 11,
