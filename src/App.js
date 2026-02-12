@@ -32,6 +32,7 @@ function App() {
 
   const allThemes = [
     { value: 'allmant', label: 'Allmänt', thumbnail: LightbulbThumbnail },
+    { value: 'detLaterBekant', label: 'Det låter bekant', thumbnail: LightbulbThumbnail },
     { value: 'jul', label: 'Jul', thumbnail: TreeThumbnail },
     { value: 'nyår2024', label: 'Nyår 2024', thumbnail: FireworkThumbnail },
     { value: 'nyår2025', label: 'Nyår 2025', thumbnail: FireworkThumbnail },
