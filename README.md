@@ -1,3 +1,9 @@
+# How to add new themes
+1. Lägg till ny js fil med frågor och svar + rätt mappnamn för bilder
+2. Lägga till mapp med bilder
+3. Addera objekt i app.js allThemes
+
+---
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -14,8 +14,8 @@ import AllAnswersMobile from './components/AllAnswersMobile';
 import { ReactComponent as LightbulbThumbnail } from './images/thumbnails/lightbulb.svg';
 import { ReactComponent as TreeThumbnail } from './images/thumbnails/tree.svg';
 import { ReactComponent as FireworkThumbnail } from './images/thumbnails/firework1.svg';
-import advaniaThumbnail from './images/thumbnails/advania.png';
 
+//import advaniaThumbnail from './images/thumbnails/advania.png';
 // import { ReactComponent as Nyår2025Thumbnail } from './images/thumbnails/firework1.svg';
 
 function App() {
@@ -37,8 +37,9 @@ function App() {
     { value: 'nyår2024', label: 'Nyår 2024', thumbnail: FireworkThumbnail },
     { value: 'nyår2025', label: 'Nyår 2025', thumbnail: FireworkThumbnail },
     { value: 'nyår2026', label: 'Nyår 2026', thumbnail: FireworkThumbnail },
-    { value: 'advania', label: 'Advania', thumbnail: advaniaThumbnail },
-
+    { value: 'vaxjo', label: 'Växjö', thumbnail: LightbulbThumbnail },
+    
+    //{ value: 'advania', label: 'Advania', thumbnail: advaniaThumbnail },
     // { value: 'karlstad', label: 'Karlstahäng', thumbnail: AllmantThumbnail },
   ];
 
